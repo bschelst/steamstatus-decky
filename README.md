@@ -54,8 +54,8 @@ This led me to realize that it would be highly beneficial to receive clear notif
 
 ## Screenshots
 
-![Screenshot 1](assets/screenshot1.jpg)
-![Screenshot 2](assets/screenshot2.jpg)
+![Steam Status](./assets/screenshot1.jpg) 
+![Steam Status](./assets/screenshot2.jpg) 
 
 ---
 
