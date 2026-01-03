@@ -52,6 +52,13 @@ This led me to realize that it would be highly beneficial to receive clear notif
 
 ---
 
+## Screenshots
+
+![Screenshot 1](assets/screenshot1.jpg)
+![Screenshot 2](assets/screenshot2.jpg)
+
+---
+
 ## Translations
 
 The plugin supports localization and will automatically use Steam's language setting.
