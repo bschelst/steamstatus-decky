@@ -22,6 +22,8 @@ Steam Status is a lightweight Decky plugin which displays real-time information 
 - **Trending games** - Top 5 Deck-verified games with biggest player gains
 - **Outage detection** - Automatic detection and notifications for service outages
 
+It's making use of a gateway server, so that there is only 1 call needed to the gateway server (saving resources &  battery) , and no Steam API is required.
+
 ---
 
 ## What did I create this
