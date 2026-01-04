@@ -7,11 +7,24 @@ let cachedSettings: PluginSettings = { ...DEFAULT_SETTINGS };
 let settingsListeners: Set<(settings: PluginSettings) => void> = new Set();
 
 export function loadSettings(): Promise<PluginSettings> {
+  console.log('[SteamStatus] loadSettings: Loading from Python backend...');
+  console.log('[SteamStatus] loadSettings: DEFAULT_SETTINGS =', DEFAULT_SETTINGS);
   return call<[], PluginSettings>('get_settings').then((settings) => {
-    cachedSettings = { ...DEFAULT_SETTINGS, ...settings };
+    console.log('[SteamStatus] loadSettings: Python returned =', settings);
+    // Filter out empty string values from Python settings so they don't override frontend defaults
+    const filteredSettings: Partial<PluginSettings> = {};
+    for (const [key, value] of Object.entries(settings)) {
+      if (value !== '' && value !== null && value !== undefined) {
+        filteredSettings[key as keyof PluginSettings] = value;
+      }
+    }
+    console.log('[SteamStatus] loadSettings: Filtered settings =', filteredSettings);
+    cachedSettings = { ...DEFAULT_SETTINGS, ...filteredSettings };
+    console.log('[SteamStatus] loadSettings: Final cachedSettings =', cachedSettings);
     notifyListeners();
     return cachedSettings;
-  }).catch(() => {
+  }).catch((e) => {
+    console.error('[SteamStatus] loadSettings: Failed to load settings:', e);
     return cachedSettings;
   });
 }

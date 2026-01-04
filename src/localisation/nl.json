@@ -35,6 +35,7 @@
   "updateInstalling": "Installeren...",
   "updateCompleted": "Voltooid!",
   "updateFailed": "Bijwerken mislukt",
+  "restartDecky": "Herstart Decky Loader",
   "settings": "Instellingen",
   "configurePlugin": "Plugin configureren",
   "backToStatus": "Terug naar status",

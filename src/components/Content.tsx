@@ -7,7 +7,7 @@ import {
   Navigation,
   showModal,
 } from '@decky/ui';
-import { call } from '@decky/api';
+import { call, fetchNoCors } from '@decky/api';
 import {
   FaCog,
   FaArrowLeft,
@@ -15,6 +15,7 @@ import {
   FaQuestionCircle,
   FaGithub,
   FaDownload,
+  FaSync,
 } from 'react-icons/fa';
 
 import { StatusPanel } from './StatusPanel';
@@ -35,12 +36,22 @@ type UpdateStatus = 'idle' | 'checking' | 'downloading' | 'installing' | 'comple
 async function checkUpdateFileExists(url: string): Promise<boolean> {
   console.log('[SteamStatus] Checking if update file exists:', url);
   try {
-    const response = await fetch(url, { method: 'HEAD' });
+    // Use fetchNoCors to bypass CORS restrictions on Steam Deck
+    const response = await fetchNoCors(url, { method: 'HEAD' });
     console.log('[SteamStatus] HEAD request status:', response.status);
     return response.ok;
   } catch (e) {
     console.error('[SteamStatus] HEAD request failed:', e);
-    return false;
+    // If HEAD fails, try a GET request (some servers don't support HEAD)
+    try {
+      console.log('[SteamStatus] Trying GET request instead...');
+      const response = await fetchNoCors(url, { method: 'GET' });
+      console.log('[SteamStatus] GET request status:', response.status);
+      return response.ok;
+    } catch (e2) {
+      console.error('[SteamStatus] GET request also failed:', e2);
+      return false;
+    }
   }
 }
 
@@ -48,7 +59,7 @@ async function checkUpdateFileExists(url: string): Promise<boolean> {
 async function installPluginUpdate(
   url: string,
   onStatusChange: (status: UpdateStatus) => void
-): Promise<void> {
+): Promise<string | undefined> {
   console.log('[SteamStatus] Starting plugin update...');
   console.log('[SteamStatus] Update URL:', url);
 
@@ -83,15 +94,44 @@ async function installPluginUpdate(
     }
   }
 
-  // Fallback: try calling the backend route
-  console.log('[SteamStatus] Falling back to call("install_plugin")...');
+  // First test if Python backend is responsive
+  console.log('[SteamStatus] Testing Python backend...');
   try {
-    onStatusChange('installing');
-    const result = await call<[string], void>('install_plugin', url);
-    console.log('[SteamStatus] call("install_plugin") result:', result);
-    onStatusChange('completed');
+    const testResult = await call<[], { success: boolean; message: string }>('test_backend');
+    console.log('[SteamStatus] test_backend result:', testResult);
   } catch (e) {
-    console.error('[SteamStatus] call("install_plugin") failed:', e);
+    console.error('[SteamStatus] test_backend failed:', e);
+    throw new Error('Python backend not responding');
+  }
+
+  // Call the Python backend to download and install with timeout
+  console.log('[SteamStatus] Calling Python backend install_plugin...');
+  onStatusChange('installing');
+
+  // Create a timeout promise (60 seconds)
+  const INSTALL_TIMEOUT_MS = 60000;
+  const timeoutPromise = new Promise<never>((_, reject) => {
+    setTimeout(() => {
+      reject(new Error('Installation timed out after 60 seconds'));
+    }, INSTALL_TIMEOUT_MS);
+  });
+
+  try {
+    const resultPromise = call<[string], { success: boolean; message: string; needsManualInstall?: boolean }>('install_plugin', url);
+
+    // Race between the actual call and the timeout
+    const result = await Promise.race([resultPromise, timeoutPromise]);
+    console.log('[SteamStatus] install_plugin result:', result);
+
+    if (result && result.success) {
+      onStatusChange('completed');
+      // Return the message for display
+      return result.message;
+    } else {
+      throw new Error(result?.message || 'Installation failed');
+    }
+  } catch (e) {
+    console.error('[SteamStatus] install_plugin failed:', e);
     throw e;
   }
 }
@@ -230,6 +270,7 @@ const getUpdateStatusText = (status: UpdateStatus, t: ReturnType<typeof useTrans
   }
 };
 
+
 const AboutSection: React.FC = () => {
   const t = useTranslations();
   const [settings] = useSettings();
@@ -248,14 +289,21 @@ const AboutSection: React.FC = () => {
     setUpdateStatus('checking');
     setUpdateError(null);
     try {
-      await installPluginUpdate(PLUGIN_UPDATE_URL, setUpdateStatus);
+      const message = await installPluginUpdate(PLUGIN_UPDATE_URL, setUpdateStatus);
       console.log('[SteamStatus] Update completed successfully');
+      // Show the install instructions
+      if (message) {
+        setUpdateError(message);
+      }
     } catch (e) {
       console.error('[SteamStatus] Failed to update plugin:', e);
       setUpdateStatus('failed');
       setUpdateError(e instanceof Error ? e.message : 'Update failed');
-      console.log('[SteamStatus] Opening GitHub releases page as fallback...');
-      Navigation.NavigateToExternalWeb(GITHUB_URL + '/releases/latest');
+      // Reset to idle after 60 seconds so user can retry
+      setTimeout(() => {
+        setUpdateStatus('idle');
+        setUpdateError(null);
+      }, 60000);
     } finally {
       console.log('[SteamStatus] Update process finished');
     }
@@ -277,22 +325,34 @@ const AboutSection: React.FC = () => {
       )}
       {settings.check_for_updates && (updateAvailable || updateStatus !== 'idle') && (
         <PanelSectionRow>
-          <ButtonItem
-            layout="below"
-            onClick={handleUpdate}
-            disabled={isUpdating}
-          >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <FaDownload size={14} />
-              <span>
-                {isUpdating
-                  ? getUpdateStatusText(updateStatus, t)
-                  : updateStatus === 'failed'
-                    ? t('updateFailed') || 'Update failed - Retry?'
-                    : t('updateToVersion', { version: latestVersion })}
-              </span>
-            </div>
-          </ButtonItem>
+          {updateStatus === 'completed' ? (
+            <ButtonItem
+              layout="below"
+              disabled={true}
+            >
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', opacity: 0.5 }}>
+                <FaSync size={14} />
+                <span>{t('restartDecky') || 'Restart Decky Loader'}</span>
+              </div>
+            </ButtonItem>
+          ) : (
+            <ButtonItem
+              layout="below"
+              onClick={handleUpdate}
+              disabled={isUpdating}
+            >
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <FaDownload size={14} />
+                <span>
+                  {isUpdating
+                    ? getUpdateStatusText(updateStatus, t)
+                    : updateStatus === 'failed'
+                      ? t('updateFailed') || 'Update failed - Retry?'
+                      : t('updateToVersion', { version: latestVersion })}
+                </span>
+              </div>
+            </ButtonItem>
+          )}
         </PanelSectionRow>
       )}
       {updateError && (

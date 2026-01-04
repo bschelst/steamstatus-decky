@@ -39,6 +39,7 @@
   "updateInstalling": "Installing...",
   "updateCompleted": "Completed!",
   "updateFailed": "Update failed",
+  "restartDecky": "Restart Decky Loader",
 
   "settings": "Settings",
   "configurePlugin": "Configure Plugin",
