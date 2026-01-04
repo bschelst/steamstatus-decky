@@ -1,4 +1,4 @@
-export const PLUGIN_VERSION = '0.0.1';
+export const PLUGIN_VERSION = '1.0.0';
 
 export const DEFAULT_SETTINGS = {
   gateway_url: 'https://bschelst-thinkpad-p70.grolar-tiyanki.ts.net:18888',
