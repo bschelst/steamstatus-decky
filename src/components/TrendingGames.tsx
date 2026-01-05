@@ -23,7 +23,7 @@ export const TrendingGamesPanel: React.FC<TrendingGamesProps> = ({ games }) => {
   }
 
   // Check if most games are trending up
-  const trendingUp = games.filter((g) => g.gain_24h > 0).length > games.length / 2;
+  const trendingUp = games.filter((g) => g.gain_48h > 0).length > games.length / 2;
 
   return (
     <div style={{ marginTop: '8px' }}>
@@ -95,18 +95,18 @@ export const TrendingGamesPanel: React.FC<TrendingGamesProps> = ({ games }) => {
                     <span
                       style={{
                         fontSize: '11px',
-                        color: game.gain_24h >= 0 ? '#4caf50' : '#f44336',
+                        color: game.gain_48h >= 0 ? '#4caf50' : '#f44336',
                         display: 'flex',
                         alignItems: 'center',
                         gap: '2px',
                       }}
                     >
-                      {game.gain_24h >= 0 ? (
+                      {game.gain_48h >= 0 ? (
                         <FaArrowUp size={8} />
                       ) : (
                         <FaArrowDown size={8} />
                       )}
-                      {formatPlayerCount(Math.abs(game.gain_24h))}
+                      {formatPlayerCount(Math.abs(game.gain_48h))}
                     </span>
                   </div>
                 </div>

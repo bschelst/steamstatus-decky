@@ -20,7 +20,7 @@ export interface TrendingGame {
   appid: number;
   name: string;
   current_players: number;
-  gain_24h: number;
+  gain_48h: number;
   gain_percent: number;
 }
 

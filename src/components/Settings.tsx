@@ -30,22 +30,19 @@ export const Settings: React.FC = () => {
             label={t('refreshInterval')}
             description={t('refreshIntervalDesc')}
             value={settings.refresh_interval_seconds}
-            min={0}
-            max={600}
-            step={60}
-            notchCount={5}
+            min={300}
+            max={1800}
+            step={300}
+            notchCount={6}
             notchLabels={[
-              { notchIndex: 0, label: t('off') },
-              { notchIndex: 1, label: '3m' },
-              { notchIndex: 2, label: '5m' },
-              { notchIndex: 3, label: '7m' },
-              { notchIndex: 4, label: '10m' },
+              { notchIndex: 0, label: '5m' },
+              { notchIndex: 1, label: '10m' },
+              { notchIndex: 2, label: '15m' },
+              { notchIndex: 3, label: '20m' },
+              { notchIndex: 4, label: '25m' },
+              { notchIndex: 5, label: '30m' },
             ]}
-            onChange={(value) => {
-              // Minimum 3 minutes (180 seconds) if not off
-              const adjustedValue = value > 0 && value < 180 ? 180 : value;
-              updateSetting('refresh_interval_seconds', adjustedValue);
-            }}
+            onChange={(value) => updateSetting('refresh_interval_seconds', value)}
           />
         </PanelSectionRow>
 

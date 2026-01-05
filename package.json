@@ -32,7 +32,6 @@
     "@decky/ui": "^4.7.1",
     "@types/react": "16.14.0",
     "@types/react-dom": "16.9.0",
-    "@types/react-sparklines": "^1.7.5",
     "@types/webpack": "^5.28.5",
     "rollup": "^4.22.4",
     "shx": "^0.3.4",
@@ -42,7 +41,7 @@
   "dependencies": {
     "@decky/api": "^1.1.2",
     "react-icons": "^4.12.0",
-    "react-sparklines": "^1.7.0"
+    "recharts": "^2.15.0"
   },
   "pnpm": {
     "peerDependencyRules": {

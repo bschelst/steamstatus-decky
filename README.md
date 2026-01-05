@@ -9,10 +9,9 @@
 > **This project is under active development and is not functional or supported at this time.**
 
 
-Display **real-time Steam status**, player counts, and service health directly on your Steam Deck.
+Display **real-time Steam status**, player counts, and Steam service health directly on your Steam Deck.
+This is getting information from official Steam APIs, and also of ProtonDB. (for Trending Games).
 
-<!-- TODO: Add screenshot -->
-<!-- ![Steam Status](./assets/screenshot.jpg) -->
 
 ---
 
@@ -27,7 +26,7 @@ Steam Status is a lightweight Decky plugin which displays real-time information 
 - **Trending games** - Top 5 Deck-verified games with biggest player gains
 - **Outage detection** - Automatic detection and notifications for service outages
 
-It's making use of a gateway server, so that there is only 1 call needed to the gateway server (saving resources &  battery) , and no Steam API is required.
+It's making use of a gateway server, developped, hosted and paid by me, so no Steam API is required.
 
 ---
 

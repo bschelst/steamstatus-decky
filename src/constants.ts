@@ -4,7 +4,7 @@ export const DEFAULT_SETTINGS = {
   gateway_url: 'https://steamstatus.schelstraete.org',
   gateway_api_key: 'A7f9K2mQ8R3D6T1ZJ5W0H4CNYVXEP9',
   status_page_url: 'https://store.steampowered.com/charts',
-  refresh_interval_seconds: 180,
+  refresh_interval_seconds: 300,
   show_history: true,
   enable_notifications: true,
   show_trending_games: true,
