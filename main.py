@@ -15,7 +15,6 @@ SETTINGS_FILE = os.path.join(decky_plugin.DECKY_PLUGIN_SETTINGS_DIR, "settings.j
 DEFAULT_SETTINGS = {
     "gateway_url": "",
     "gateway_api_key": "",
-    "status_page_url": "https://store.steampowered.com/charts",
     "refresh_interval_seconds": 120,
     "show_regions": True,
     "show_history": True,

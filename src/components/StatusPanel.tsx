@@ -8,6 +8,7 @@ import { TrendingGamesPanel } from './TrendingGames';
 import { ConnectionManagersPanel } from './ConnectionManagersPanel';
 import { useSettings } from '../hooks/useSettings';
 import useTranslations from '../hooks/useTranslations';
+import { STATUS_PAGE_URL } from '../constants';
 
 interface StatusPanelProps {
   status: SteamStatus | null;
@@ -72,10 +73,8 @@ export const StatusPanel: React.FC<StatusPanelProps> = ({
   const isRefreshDisabled = refreshCooldown > 0 || isLoading;
 
   const openStatusPage = () => {
-    if (settings.status_page_url) {
-      // Open URL in Steam browser using Decky's Navigation API
-      Navigation.NavigateToExternalWeb(settings.status_page_url);
-    }
+    // Open URL in Steam browser using Decky's Navigation API
+    Navigation.NavigateToExternalWeb(STATUS_PAGE_URL);
   };
 
   if (error && !status) {
@@ -190,25 +189,23 @@ export const StatusPanel: React.FC<StatusPanelProps> = ({
             </span>
           </Focusable>
 
-          {settings.status_page_url && (
-            <Focusable
-              onActivate={openStatusPage}
-              style={{
-                flex: 1,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '6px',
-                padding: '8px',
-                background: '#1a1a1a',
-                borderRadius: '4px',
-                cursor: 'pointer',
-              }}
-            >
-              <FaExternalLinkAlt size={12} />
-              <span>{t('status')}</span>
-            </Focusable>
-          )}
+          <Focusable
+            onActivate={openStatusPage}
+            style={{
+              flex: 1,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '6px',
+              padding: '8px',
+              background: '#1a1a1a',
+              borderRadius: '4px',
+              cursor: 'pointer',
+            }}
+          >
+            <FaExternalLinkAlt size={12} />
+            <span>{t('status')}</span>
+          </Focusable>
         </div>
       </PanelSectionRow>
 

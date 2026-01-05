@@ -48,8 +48,6 @@
   "backToStatus": "Back to Status",
 
   "displayOptions": "Display Options",
-  "statusPageUrl": "Status Page URL",
-  "statusPageUrlDesc": "URL to open when clicking Status button",
   "refreshInterval": "Refresh Interval",
   "refreshIntervalDesc": "Minutes between automatic status refreshes",
   "off": "Off",

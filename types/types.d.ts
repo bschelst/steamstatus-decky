@@ -52,7 +52,6 @@ export interface SteamStatus {
 export interface PluginSettings {
   gateway_url: string;
   gateway_api_key: string;
-  status_page_url: string;
   refresh_interval_seconds: number;
   show_history: boolean;
   enable_notifications: boolean;

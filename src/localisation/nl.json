@@ -42,8 +42,6 @@
   "configurePlugin": "Plugin configureren",
   "backToStatus": "Terug naar status",
   "displayOptions": "Weergave opties",
-  "statusPageUrl": "Statuspagina URL",
-  "statusPageUrlDesc": "URL om te openen bij klikken op statusknop",
   "refreshInterval": "Vernieuwingsinterval",
   "refreshIntervalDesc": "Minuten tussen automatische status vernieuwingen",
   "off": "Uit",

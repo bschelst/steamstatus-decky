@@ -16,14 +16,6 @@ export const Settings: React.FC = () => {
   return (
     <>
       <PanelSection title={t('displayOptions')}>
-        <PanelSectionRow>
-          <TextField
-            label={t('statusPageUrl')}
-            description={t('statusPageUrlDesc')}
-            value={settings.status_page_url}
-            onChange={(e) => updateSetting('status_page_url', e.target.value)}
-          />
-        </PanelSectionRow>
 
         <PanelSectionRow>
           <SliderField
