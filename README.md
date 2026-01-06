@@ -20,7 +20,7 @@ This is getting information from official Steam APIs, and also from ProtonDB. (f
 
 ## What it does
 
-Steam Status is a lightweight Decky plugin which displays real-time information about Steam services, helping you know when Steam is experiencing issues. The plugin shows:
+Steam Status Decky is a Decky plugin which displays real-time information about Steam services, helping you know when Steam is experiencing issues. The plugin shows:
 
 - **Current player count** - Total users currently logged into Steam
 - **Service status** - Health of Steam Store, Community, and WebAPI
@@ -30,14 +30,15 @@ Steam Status is a lightweight Decky plugin which displays real-time information 
 - **Outage detection** - Automatic detection and notifications for service outages
 
 It's making use of a gateway server, developped, hosted and paid by me, so no Steam API is required.
+The gateway server also has a status page, which can be viewed.
 
 ---
 
 ## What did I create this
 
 In December 2025, we experienced several Steam service outages. During my active gaming session, issues were occuring in-game, without any clear indication that Steam itself was experiencing problems.
-At the time, we didn't know whether these disruptions were caused by local issues or by a broader Steam service outage.
-This led me to realize that it would be highly beneficial to receive clear notifications when Steam services are experiencing problems, or to be able to view the current status of Steam directly, without having to interrupt gameplay or open a web browser to investigate the issue.
+At the time, we didn't know whether these disruptions were caused by local issues or by a broader Steam service outage. (You know how it goes..."would a reboot resolve our issues").
+This led me to realize that it would be (for me) highly beneficial to receive clear notifications when Steam services are experiencing problems, or to be able to view the current status of Steam directly, without having to interrupt gameplay or open a web browser to investigate the issue.
 
 
 ---
