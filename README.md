@@ -56,8 +56,21 @@ This led me to realize that it would be highly beneficial to receive clear notif
 
 ## Screenshots
 
-![Steam Status](./assets/screenshot1.jpg) 
-![Steam Status](./assets/screenshot2.jpg) 
+<p align="center">
+  <img src="assets/screenshot1.jpg" width="45%" />
+  <img src="assets/screenshot2.jpg" width="45%" />
+</p>
+
+<p align="center">
+  <img src="assets/screenshot3.jpg" width="45%" />
+  <img src="assets/screenshot4.jpg" width="45%" />
+</p>
+
+<p align="center">
+  <img src="assets/screenshot5.jpg" width="45%" />
+</p>
+
+
 
 ---
 

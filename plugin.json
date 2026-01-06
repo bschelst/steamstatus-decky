@@ -5,7 +5,7 @@
   "api_version": 2,
   "publish": {
     "tags": ["steam", "status", "monitoring"],
-    "description": "Display Steam status, player counts, and service health",
-    "image": "https://raw.githubusercontent.com/bschelst/steamstatus-decky/main/assets/icon.png"
+    "description": "Display Steam Service status, player counts, and service health",
+    "image": "https://raw.githubusercontent.com/bschelst/steamstatus-decky/main/assets/image.png"
   }
 }
