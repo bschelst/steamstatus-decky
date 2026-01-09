@@ -16,6 +16,14 @@ export interface HistoryEntry {
   all_services_up: boolean;
 }
 
+export interface OutageEntry {
+  timestamp: string;
+  type: 'outage' | 'degraded' | 'recovered';
+  is_cm: boolean;
+  service: string;
+  details: string;
+}
+
 export interface TrendingGame {
   appid: number;
   name: string;
@@ -44,6 +52,7 @@ export interface SteamStatus {
   services: SteamServices;
   cm_regions?: CMRegion[];
   history: HistoryEntry[];
+  recent_outages?: OutageEntry[];
   trending_games?: TrendingGame[];
   cache: CacheInfo;
   timestamp: string;

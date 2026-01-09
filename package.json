@@ -1,6 +1,6 @@
 {
   "name": "steamstatus-decky",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Display Steam status, player counts, and service health on your Steam Deck",
   "type": "module",
   "scripts": {

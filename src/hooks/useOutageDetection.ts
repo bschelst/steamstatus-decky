@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { SteamStatus, HistoryEntry } from '../../types/types';
+import { SteamStatus, OutageEntry } from '../../types/types';
 
 export interface OutageInfo {
   hasCurrentOutage: boolean;
@@ -26,15 +26,19 @@ export function useOutageDetection(status: SteamStatus | null): OutageInfo {
       (svc) => svc.status !== 'online'
     );
 
-    // Check history for outages in the last hour only
+    // Check recent_outages for outages in the last hour (from outage log)
     const oneHourAgo = Date.now() - 60 * 60 * 1000;
-    const recentOutages = status.history?.filter((entry: HistoryEntry) => {
-      if (entry.all_services_up) return false;
+    const recentOutages = status.recent_outages?.filter((entry: OutageEntry) => {
+      // Only count outage and degraded events, not recoveries
+      if (entry.type === 'recovered') return false;
+      // Only count main services, not CM regions
+      if (entry.is_cm) return false;
       const entryTime = new Date(entry.timestamp).getTime();
       return entryTime >= oneHourAgo;
     }) || [];
     const hadRecentOutage = recentOutages.length > 0;
-    const lastOutage = recentOutages.length > 0 ? recentOutages[recentOutages.length - 1] : null;
+    // recent_outages is sorted newest first, so first element is most recent
+    const lastOutage = recentOutages.length > 0 ? recentOutages[0] : null;
 
     setOutageInfo({
       hasCurrentOutage: currentServicesDown,
