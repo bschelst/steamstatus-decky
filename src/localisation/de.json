@@ -27,6 +27,12 @@
   "noOutagesDetected": "Keine Ausfälle in der letzten Stunde erkannt",
   "serviceOutageDetected": "Dienstausfall erkannt",
 
+  "networkDiagnostics": "Netzwerkdiagnose",
+  "testSteamLatency": "Steam-Latenz testen",
+  "testInternetSpeed": "Internetgeschwindigkeit testen",
+  "testing": "Teste...",
+  "testFailed": "Test fehlgeschlagen",
+
   "links": "Links",
   "helpAndDocumentation": "Hilfe & Dokumentation",
   "githubRepository": "GitHub-Repository",

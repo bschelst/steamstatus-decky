@@ -27,6 +27,12 @@
   "noOutagesDetected": "Δεν εντοπίστηκαν διακοπές την τελευταία ώρα",
   "serviceOutageDetected": "Εντοπίστηκε διακοπή υπηρεσίας",
 
+  "networkDiagnostics": "Διαγνωστικά δικτύου",
+  "testSteamLatency": "Δοκιμή καθυστέρησης Steam",
+  "testInternetSpeed": "Δοκιμή ταχύτητας Internet",
+  "testing": "Δοκιμή...",
+  "testFailed": "Η δοκιμή απέτυχε",
+
   "links": "Σύνδεσμοι",
   "helpAndDocumentation": "Βοήθεια & Τεκμηρίωση",
   "githubRepository": "Αποθετήριο GitHub",

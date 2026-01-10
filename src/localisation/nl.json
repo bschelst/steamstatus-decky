@@ -24,6 +24,13 @@
   "allSystemsOperational": "Alle systemen operationeel",
   "noOutagesDetected": "Geen storingen gedetecteerd in het afgelopen uur",
   "serviceOutageDetected": "Servicestoring gedetecteerd",
+
+  "networkDiagnostics": "Netwerkdiagnose",
+  "testSteamLatency": "Test Steam-latentie",
+  "testInternetSpeed": "Test internetsnelheid",
+  "testing": "Testen...",
+  "testFailed": "Test mislukt",
+
   "links": "Links",
   "helpAndDocumentation": "Help & documentatie",
   "githubRepository": "GitHub repository",

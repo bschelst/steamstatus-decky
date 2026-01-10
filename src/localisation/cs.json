@@ -27,6 +27,12 @@
   "noOutagesDetected": "Za poslední hodinu nebyly zjištěny žádné výpadky",
   "serviceOutageDetected": "Zjištěn výpadek služby",
 
+  "networkDiagnostics": "Síťová diagnostika",
+  "testSteamLatency": "Otestovat latenci Steam",
+  "testInternetSpeed": "Otestovat rychlost Internetu",
+  "testing": "Testování...",
+  "testFailed": "Test selhal",
+
   "links": "Odkazy",
   "helpAndDocumentation": "Nápověda a dokumentace",
   "githubRepository": "GitHub repozitář",

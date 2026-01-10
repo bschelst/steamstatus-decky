@@ -27,6 +27,12 @@
   "noOutagesDetected": "Ingen nedbrud registreret i sidste time",
   "serviceOutageDetected": "Tjenestenedbrud registreret",
 
+  "networkDiagnostics": "Netværksdiagnostik",
+  "testSteamLatency": "Test Steam-latens",
+  "testInternetSpeed": "Test Internethastighed",
+  "testing": "Tester...",
+  "testFailed": "Test mislykkedes",
+
   "links": "Links",
   "helpAndDocumentation": "Hjælp og dokumentation",
   "githubRepository": "GitHub-repository",

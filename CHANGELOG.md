@@ -3,6 +3,11 @@
 All important changes are mentioned here.
 
 
+## [1.2.1] - 2026-01-10
+
+### Added
+- **Network diagnostics tools**: Test Steam connection latency and internet speed directly from the plugin. Includes Steam CM latency test and internet speed test.
+
 ## [1.2.0] - 2026-01-10
 
 ### Added
@@ -46,6 +51,7 @@ All important changes are mentioned here.
 - Gateway-based architecture for efficient data fetching
 - Decky Loader plugin interface
 
+[1.2.1]: https://github.com/bschelst/steamstatus-decky/compare/v1.2.0...v1.2.1
 [1.2.0]: https://github.com/bschelst/steamstatus-decky/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/bschelst/steamstatus-decky/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/bschelst/steamstatus-decky/releases/tag/v1.0.0

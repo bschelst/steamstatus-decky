@@ -27,6 +27,12 @@
   "noOutagesDetected": "Няма открити прекъсвания през последния час",
   "serviceOutageDetected": "Открито прекъсване на услугата",
 
+  "networkDiagnostics": "Мрежова диагностика",
+  "testSteamLatency": "Тествай забавяне на Steam",
+  "testInternetSpeed": "Тествай скорост на интернета",
+  "testing": "Тестване...",
+  "testFailed": "Тестът се провали",
+
   "links": "Връзки",
   "helpAndDocumentation": "Помощ и документация",
   "githubRepository": "GitHub хранилище",

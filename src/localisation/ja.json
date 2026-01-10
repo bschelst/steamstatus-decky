@@ -27,6 +27,12 @@
   "noOutagesDetected": "過去1時間に障害は検出されませんでした",
   "serviceOutageDetected": "サービス障害を検出",
 
+  "networkDiagnostics": "ネットワーク診断",
+  "testSteamLatency": "Steamレイテンシをテスト",
+  "testInternetSpeed": "インターネット速度をテスト",
+  "testing": "テスト中...",
+  "testFailed": "テスト失敗",
+
   "links": "リンク",
   "helpAndDocumentation": "ヘルプとドキュメント",
   "githubRepository": "GitHubリポジトリ",

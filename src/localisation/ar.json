@@ -27,6 +27,12 @@
   "noOutagesDetected": "لم يتم اكتشاف انقطاعات في الساعة الأخيرة",
   "serviceOutageDetected": "تم اكتشاف انقطاع في الخدمة",
 
+  "networkDiagnostics": "تشخيص الشبكة",
+  "testSteamLatency": "اختبار تأخير Steam",
+  "testInternetSpeed": "اختبار سرعة الإنترنت",
+  "testing": "جارٍ الاختبار...",
+  "testFailed": "فشل الاختبار",
+
   "links": "الروابط",
   "helpAndDocumentation": "المساعدة والوثائق",
   "githubRepository": "مستودع GitHub",

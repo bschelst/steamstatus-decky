@@ -27,6 +27,12 @@
   "noOutagesDetected": "Збоїв за останню годину не виявлено",
   "serviceOutageDetected": "Виявлено збій сервісу",
 
+  "networkDiagnostics": "Мережева діагностика",
+  "testSteamLatency": "Тест затримки Steam",
+  "testInternetSpeed": "Тест швидкості інтернету",
+  "testing": "Тестування...",
+  "testFailed": "Тест не вдався",
+
   "links": "Посилання",
   "helpAndDocumentation": "Довідка та документація",
   "githubRepository": "Репозиторій GitHub",

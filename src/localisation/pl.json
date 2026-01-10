@@ -27,6 +27,12 @@
   "noOutagesDetected": "Nie wykryto awarii w ostatniej godzinie",
   "serviceOutageDetected": "Wykryto awarię usługi",
 
+  "networkDiagnostics": "Diagnostyka sieci",
+  "testSteamLatency": "Testuj opóźnienie Steam",
+  "testInternetSpeed": "Testuj prędkość Internetu",
+  "testing": "Testowanie...",
+  "testFailed": "Test nieudany",
+
   "links": "Linki",
   "helpAndDocumentation": "Pomoc i dokumentacja",
   "githubRepository": "Repozytorium GitHub",

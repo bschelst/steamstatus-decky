@@ -27,6 +27,12 @@
   "noOutagesDetected": "Nu au fost detectate întreruperi în ultima oră",
   "serviceOutageDetected": "Întrerupere de serviciu detectată",
 
+  "networkDiagnostics": "Diagnosticare rețea",
+  "testSteamLatency": "Testează latența Steam",
+  "testInternetSpeed": "Testează viteza Internetului",
+  "testing": "Se testează...",
+  "testFailed": "Test eșuat",
+
   "links": "Linkuri",
   "helpAndDocumentation": "Ajutor și documentație",
   "githubRepository": "Depozit GitHub",

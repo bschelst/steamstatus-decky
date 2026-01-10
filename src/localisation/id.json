@@ -27,6 +27,12 @@
   "noOutagesDetected": "Tidak ada gangguan terdeteksi dalam satu jam terakhir",
   "serviceOutageDetected": "Gangguan layanan terdeteksi",
 
+  "networkDiagnostics": "Diagnostik jaringan",
+  "testSteamLatency": "Uji latensi Steam",
+  "testInternetSpeed": "Uji kecepatan Internet",
+  "testing": "Menguji...",
+  "testFailed": "Tes gagal",
+
   "links": "Tautan",
   "helpAndDocumentation": "Bantuan & Dokumentasi",
   "githubRepository": "Repositori GitHub",

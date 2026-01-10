@@ -27,6 +27,12 @@
   "noOutagesDetected": "過去一小時內未偵測到故障",
   "serviceOutageDetected": "偵測到服務故障",
 
+  "networkDiagnostics": "網路診斷",
+  "testSteamLatency": "測試Steam延遲",
+  "testInternetSpeed": "測試網速",
+  "testing": "測試中...",
+  "testFailed": "測試失敗",
+
   "links": "連結",
   "helpAndDocumentation": "說明與文件",
   "githubRepository": "GitHub 儲存庫",

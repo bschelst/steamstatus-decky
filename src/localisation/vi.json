@@ -27,6 +27,12 @@
   "noOutagesDetected": "Không phát hiện gián đoạn trong giờ qua",
   "serviceOutageDetected": "Phát hiện gián đoạn dịch vụ",
 
+  "networkDiagnostics": "Chẩn đoán mạng",
+  "testSteamLatency": "Kiểm tra độ trễ Steam",
+  "testInternetSpeed": "Kiểm tra tốc độ Internet",
+  "testing": "Đang kiểm tra...",
+  "testFailed": "Kiểm tra thất bại",
+
   "links": "Liên kết",
   "helpAndDocumentation": "Trợ giúp & Tài liệu",
   "githubRepository": "Kho lưu trữ GitHub",

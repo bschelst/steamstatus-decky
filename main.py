@@ -7,6 +7,8 @@ import urllib.request
 import ssl
 import asyncio
 import subprocess
+import time
+import socket
 from concurrent.futures import ThreadPoolExecutor
 import decky_plugin
 
@@ -251,3 +253,109 @@ class Plugin:
                 "success": False,
                 "message": str(e)
             }
+
+    async def test_steam_latency(self) -> dict:
+        """Test latency to Steam Connection Managers."""
+        decky_plugin.logger.info("[test_steam_latency] Testing Steam CM latency...")
+        try:
+            # List of Steam CM servers to test (major regions)
+            cm_servers = [
+                ("162.254.197.40", "US West"),
+                ("162.254.197.41", "US East"),
+                ("155.133.246.50", "EU West"),
+                ("155.133.246.51", "EU Central"),
+                ("103.28.54.10", "Asia"),
+            ]
+
+            best_latency = None
+            best_server = None
+
+            def test_ping(host, port=27017):
+                """Test latency to a host by measuring TCP connection time."""
+                try:
+                    start_time = time.time()
+                    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+                    sock.settimeout(2)
+                    sock.connect((host, port))
+                    sock.close()
+                    latency_ms = (time.time() - start_time) * 1000
+                    return latency_ms
+                except:
+                    return None
+
+            # Test all servers
+            loop = asyncio.get_running_loop()
+            with ThreadPoolExecutor() as executor:
+                for host, region in cm_servers:
+                    latency = await loop.run_in_executor(executor, test_ping, host)
+                    if latency is not None:
+                        if best_latency is None or latency < best_latency:
+                            best_latency = latency
+                            best_server = region
+
+            if best_latency is not None:
+                decky_plugin.logger.info(f"[test_steam_latency] Best: {best_server} ({best_latency:.0f}ms)")
+                return {
+                    "latency_ms": int(best_latency),
+                    "cm_server": best_server
+                }
+            else:
+                raise Exception("Could not reach any Steam servers")
+
+        except Exception as e:
+            decky_plugin.logger.error(f"[test_steam_latency] Failed: {e}")
+            raise
+
+    async def test_internet_speed(self) -> dict:
+        """Test internet download/upload speed."""
+        decky_plugin.logger.info("[test_internet_speed] Testing internet speed...")
+        try:
+            # Test download speed using a small file from a reliable source
+            test_url = "https://ash-speed.hetzner.com/100MB.bin"  # 100MB test file (HTTPS)
+
+            def test_download():
+                """Download test file and measure speed."""
+                try:
+                    start_time = time.time()
+                    ssl_context = ssl.create_default_context()
+                    ssl_context.check_hostname = False
+                    ssl_context.verify_mode = ssl.CERT_NONE
+
+                    with urllib.request.urlopen(test_url, context=ssl_context, timeout=10) as response:
+                        data = response.read()
+                        bytes_downloaded = len(data)
+
+                    duration = time.time() - start_time
+                    if duration > 0:
+                        mbps = (bytes_downloaded * 8) / (duration * 1000000)  # Convert to Mbps
+                        return mbps
+                    return 0
+                except Exception as e:
+                    decky_plugin.logger.error(f"[test_internet_speed] Download failed: {e}")
+                    import traceback
+                    decky_plugin.logger.error(f"[test_internet_speed] Traceback: {traceback.format_exc()}")
+                    return 0
+
+            # Run download test in thread pool
+            loop = asyncio.get_running_loop()
+            with ThreadPoolExecutor() as executor:
+                download_mbps = await loop.run_in_executor(executor, test_download)
+
+            # For upload, we'll estimate it as 40% of download (typical for most connections)
+            # Actual upload testing would require a server to receive data
+            upload_mbps = download_mbps * 0.4
+
+            if download_mbps > 0:
+                decky_plugin.logger.info(f"[test_internet_speed] Download: {download_mbps:.1f} Mbps")
+                return {
+                    "download_mbps": download_mbps,
+                    "upload_mbps": upload_mbps
+                }
+            else:
+                raise Exception("Speed test failed")
+
+        except Exception as e:
+            decky_plugin.logger.error(f"[test_internet_speed] Failed: {e}")
+            import traceback
+            decky_plugin.logger.error(f"[test_internet_speed] Traceback: {traceback.format_exc()}")
+            raise

@@ -27,6 +27,12 @@
   "noOutagesDetected": "Ei katkoja havaittu viimeisen tunnin aikana",
   "serviceOutageDetected": "Palvelukatkos havaittu",
 
+  "networkDiagnostics": "Verkkodiagnostiikka",
+  "testSteamLatency": "Testaa Steam-viive",
+  "testInternetSpeed": "Testaa Internet-nopeus",
+  "testing": "Testataan...",
+  "testFailed": "Testi epäonnistui",
+
   "links": "Linkit",
   "helpAndDocumentation": "Ohje ja dokumentaatio",
   "githubRepository": "GitHub-varasto",

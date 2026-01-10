@@ -27,6 +27,12 @@
   "noOutagesDetected": "ไม่พบการหยุดทำงานในชั่วโมงที่ผ่านมา",
   "serviceOutageDetected": "ตรวจพบการหยุดทำงานของบริการ",
 
+  "networkDiagnostics": "การวินิจฉัยเครือข่าย",
+  "testSteamLatency": "ทดสอบความหน่วง Steam",
+  "testInternetSpeed": "ทดสอบความเร็วอินเทอร์เน็ต",
+  "testing": "กำลังทดสอบ...",
+  "testFailed": "การทดสอบล้มเหลว",
+
   "links": "ลิงก์",
   "helpAndDocumentation": "ความช่วยเหลือและเอกสาร",
   "githubRepository": "ที่เก็บ GitHub",

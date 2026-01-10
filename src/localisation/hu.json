@@ -27,6 +27,12 @@
   "noOutagesDetected": "Nem észleltünk leállást az elmúlt órában",
   "serviceOutageDetected": "Szolgáltatás leállás észlelve",
 
+  "networkDiagnostics": "Hálózati diagnosztika",
+  "testSteamLatency": "Steam késleltetés tesztelése",
+  "testInternetSpeed": "Internet sebesség tesztelése",
+  "testing": "Tesztelés...",
+  "testFailed": "Teszt sikertelen",
+
   "links": "Linkek",
   "helpAndDocumentation": "Súgó és dokumentáció",
   "githubRepository": "GitHub tároló",

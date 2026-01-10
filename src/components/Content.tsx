@@ -16,6 +16,8 @@ import {
   FaGithub,
   FaDownload,
   FaSync,
+  FaNetworkWired,
+  FaTachometerAlt,
 } from 'react-icons/fa';
 
 import { StatusPanel } from './StatusPanel';
@@ -229,6 +231,79 @@ const ServiceStatusSection: React.FC<{ outageInfo: OutageInfo }> = ({ outageInfo
   );
 };
 
+const DiagnosticsSection: React.FC = () => {
+  const t = useTranslations();
+  const [latencyTesting, setLatencyTesting] = useState(false);
+  const [latencyResult, setLatencyResult] = useState<string | null>(null);
+  const [speedTesting, setSpeedTesting] = useState(false);
+  const [speedResult, setSpeedResult] = useState<string | null>(null);
+
+  const testSteamLatency = async () => {
+    setLatencyTesting(true);
+    setLatencyResult(null);
+    try {
+      const result = await call<[], { latency_ms: number; cm_server: string }>('test_steam_latency');
+      setLatencyResult(`${result.latency_ms}ms (${result.cm_server})`);
+    } catch (e) {
+      setLatencyResult(t('testFailed') || 'Test failed');
+    } finally {
+      setLatencyTesting(false);
+    }
+  };
+
+  const testInternetSpeed = async () => {
+    setSpeedTesting(true);
+    setSpeedResult(null);
+    try {
+      const result = await call<[], { download_mbps: number; upload_mbps: number }>('test_internet_speed');
+      setSpeedResult(`↓ ${result.download_mbps.toFixed(1)} Mbps / ↑ ${result.upload_mbps.toFixed(1)} Mbps`);
+    } catch (e) {
+      setSpeedResult(t('testFailed') || 'Test failed');
+    } finally {
+      setSpeedTesting(false);
+    }
+  };
+
+  return (
+    <PanelSection title={t('networkDiagnostics')}>
+      <PanelSectionRow>
+        <ButtonItem
+          layout="below"
+          onClick={testSteamLatency}
+          disabled={latencyTesting}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <FaNetworkWired size={16} />
+            <span>{latencyTesting ? t('testing') || 'Testing...' : t('testSteamLatency')}</span>
+          </div>
+        </ButtonItem>
+        {latencyResult && (
+          <div style={{ fontSize: '12px', color: '#ccc', marginTop: '4px' }}>
+            {latencyResult}
+          </div>
+        )}
+      </PanelSectionRow>
+      <PanelSectionRow>
+        <ButtonItem
+          layout="below"
+          onClick={testInternetSpeed}
+          disabled={speedTesting}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <FaTachometerAlt size={16} />
+            <span>{speedTesting ? t('testing') || 'Testing...' : t('testInternetSpeed')}</span>
+          </div>
+        </ButtonItem>
+        {speedResult && (
+          <div style={{ fontSize: '12px', color: '#ccc', marginTop: '4px' }}>
+            {speedResult}
+          </div>
+        )}
+      </PanelSectionRow>
+    </PanelSection>
+  );
+};
+
 const LinksSection: React.FC = () => {
   const t = useTranslations();
   return (
@@ -431,6 +506,9 @@ const Content: React.FC = () => {
 
       {/* Service Status Section */}
       <ServiceStatusSection outageInfo={outageInfo} />
+
+      {/* Network Diagnostics Section */}
+      <DiagnosticsSection />
 
       {/* Links Section */}
       <LinksSection />

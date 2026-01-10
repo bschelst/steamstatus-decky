@@ -27,6 +27,12 @@
   "noOutagesDetected": "Сбоев за последний час не обнаружено",
   "serviceOutageDetected": "Обнаружен сбой сервиса",
 
+  "networkDiagnostics": "Сетевая диагностика",
+  "testSteamLatency": "Тест задержки Steam",
+  "testInternetSpeed": "Тест скорости интернета",
+  "testing": "Тестирование...",
+  "testFailed": "Тест не удался",
+
   "links": "Ссылки",
   "helpAndDocumentation": "Помощь и документация",
   "githubRepository": "Репозиторий GitHub",

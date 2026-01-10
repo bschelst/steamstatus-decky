@@ -27,6 +27,12 @@
   "noOutagesDetected": "Ingen avbrudd oppdaget siste time",
   "serviceOutageDetected": "Tjenesteavbrudd oppdaget",
 
+  "networkDiagnostics": "Nettverksdiagnostikk",
+  "testSteamLatency": "Test Steam-latens",
+  "testInternetSpeed": "Test Internetthastighet",
+  "testing": "Tester...",
+  "testFailed": "Test mislyktes",
+
   "links": "Lenker",
   "helpAndDocumentation": "Hjelp og dokumentasjon",
   "githubRepository": "GitHub-repository",

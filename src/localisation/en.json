@@ -27,6 +27,12 @@
   "noOutagesDetected": "No outages detected in the last hour",
   "serviceOutageDetected": "Service outage detected",
 
+  "networkDiagnostics": "Network Diagnostics",
+  "testSteamLatency": "Test Steam Latency",
+  "testInternetSpeed": "Test Internet Speed",
+  "testing": "Testing...",
+  "testFailed": "Test failed",
+
   "links": "Links",
   "helpAndDocumentation": "Help & Documentation",
   "githubRepository": "GitHub Repository",

@@ -27,6 +27,12 @@
   "noOutagesDetected": "Inga avbrott upptäckta senaste timmen",
   "serviceOutageDetected": "Tjänstavbrott upptäckt",
 
+  "networkDiagnostics": "Nätverksdiagnostik",
+  "testSteamLatency": "Testa Steam-latens",
+  "testInternetSpeed": "Testa Internethastighet",
+  "testing": "Testar...",
+  "testFailed": "Test misslyckades",
+
   "links": "Länkar",
   "helpAndDocumentation": "Hjälp och dokumentation",
   "githubRepository": "GitHub-förråd",

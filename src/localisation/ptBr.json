@@ -27,6 +27,12 @@
   "noOutagesDetected": "Sem interrupções detectadas na última hora",
   "serviceOutageDetected": "Interrupção de serviço detectada",
 
+  "networkDiagnostics": "Diagnósticos de rede",
+  "testSteamLatency": "Testar latência Steam",
+  "testInternetSpeed": "Testar velocidade da Internet",
+  "testing": "Testando...",
+  "testFailed": "Teste falhou",
+
   "links": "Links",
   "helpAndDocumentation": "Ajuda e documentação",
   "githubRepository": "Repositório GitHub",

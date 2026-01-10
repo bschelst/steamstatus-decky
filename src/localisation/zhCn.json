@@ -27,6 +27,12 @@
   "noOutagesDetected": "过去一小时内未检测到故障",
   "serviceOutageDetected": "检测到服务故障",
 
+  "networkDiagnostics": "网络诊断",
+  "testSteamLatency": "测试Steam延迟",
+  "testInternetSpeed": "测试网速",
+  "testing": "测试中...",
+  "testFailed": "测试失败",
+
   "links": "链接",
   "helpAndDocumentation": "帮助与文档",
   "githubRepository": "GitHub 仓库",

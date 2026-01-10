@@ -27,6 +27,12 @@
   "noOutagesDetected": "Son saatte kesinti tespit edilmedi",
   "serviceOutageDetected": "Servis kesintisi tespit edildi",
 
+  "networkDiagnostics": "Ağ tanılaması",
+  "testSteamLatency": "Steam gecikmesini test et",
+  "testInternetSpeed": "İnternet hızını test et",
+  "testing": "Test ediliyor...",
+  "testFailed": "Test başarısız",
+
   "links": "Bağlantılar",
   "helpAndDocumentation": "Yardım ve belgeler",
   "githubRepository": "GitHub Deposu",

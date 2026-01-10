@@ -27,6 +27,12 @@
   "noOutagesDetected": "Aucune panne détectée dans la dernière heure",
   "serviceOutageDetected": "Panne de service détectée",
 
+  "networkDiagnostics": "Diagnostics réseau",
+  "testSteamLatency": "Tester la latence Steam",
+  "testInternetSpeed": "Tester la vitesse Internet",
+  "testing": "Test en cours...",
+  "testFailed": "Test échoué",
+
   "links": "Liens",
   "helpAndDocumentation": "Aide et documentation",
   "githubRepository": "Dépôt GitHub",

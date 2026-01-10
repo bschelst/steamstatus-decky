@@ -27,6 +27,12 @@
   "noOutagesDetected": "지난 1시간 내 장애가 감지되지 않음",
   "serviceOutageDetected": "서비스 장애 감지됨",
 
+  "networkDiagnostics": "네트워크 진단",
+  "testSteamLatency": "Steam 지연 시간 테스트",
+  "testInternetSpeed": "인터넷 속도 테스트",
+  "testing": "테스트 중...",
+  "testFailed": "테스트 실패",
+
   "links": "링크",
   "helpAndDocumentation": "도움말 및 문서",
   "githubRepository": "GitHub 저장소",
