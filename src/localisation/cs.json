@@ -32,6 +32,8 @@
   "testInternetSpeed": "Otestovat rychlost Internetu",
   "testing": "Testování...",
   "testFailed": "Test selhal",
+  "testCancelled": "Test zrušen",
+  "stop": "Zastavit",
 
   "links": "Odkazy",
   "helpAndDocumentation": "Nápověda a dokumentace",

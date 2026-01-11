@@ -32,6 +32,8 @@
   "testInternetSpeed": "Tester la vitesse Internet",
   "testing": "Test en cours...",
   "testFailed": "Test échoué",
+  "testCancelled": "Test annulé",
+  "stop": "Arrêter",
 
   "links": "Liens",
   "helpAndDocumentation": "Aide et documentation",

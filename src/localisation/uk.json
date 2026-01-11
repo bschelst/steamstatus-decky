@@ -32,6 +32,8 @@
   "testInternetSpeed": "Тест швидкості інтернету",
   "testing": "Тестування...",
   "testFailed": "Тест не вдався",
+  "testCancelled": "Тест скасовано",
+  "stop": "Зупинити",
 
   "links": "Посилання",
   "helpAndDocumentation": "Довідка та документація",

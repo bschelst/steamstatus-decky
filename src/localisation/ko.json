@@ -32,6 +32,8 @@
   "testInternetSpeed": "인터넷 속도 테스트",
   "testing": "테스트 중...",
   "testFailed": "테스트 실패",
+  "testCancelled": "테스트 취소됨",
+  "stop": "중지",
 
   "links": "링크",
   "helpAndDocumentation": "도움말 및 문서",

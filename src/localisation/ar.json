@@ -32,6 +32,8 @@
   "testInternetSpeed": "اختبار سرعة الإنترنت",
   "testing": "جارٍ الاختبار...",
   "testFailed": "فشل الاختبار",
+  "testCancelled": "تم إلغاء الاختبار",
+  "stop": "إيقاف",
 
   "links": "الروابط",
   "helpAndDocumentation": "المساعدة والوثائق",

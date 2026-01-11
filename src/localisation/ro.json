@@ -32,6 +32,8 @@
   "testInternetSpeed": "Testează viteza Internetului",
   "testing": "Se testează...",
   "testFailed": "Test eșuat",
+  "testCancelled": "Test anulat",
+  "stop": "Oprește",
 
   "links": "Linkuri",
   "helpAndDocumentation": "Ajutor și documentație",

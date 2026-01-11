@@ -1,4 +1,4 @@
-# Steam Status
+# 🎮 Steam Status
 
 <!-- Core status -->
 <!--[![Downloads](https://img.shields.io/github/downloads/bschelst/steamstatus-decky/latest/total?color=66c0f4)](https://github.com/bschelst/steamstatus-decky/releases) -->
@@ -12,29 +12,29 @@
 
 
 
-Display **real-time Steam status**, player counts, and Steam service health directly on your lovely Steam Deck.
-This is getting information from official Steam APIs, and also from ProtonDB. (for Trending Games).
+Display **real-time Steam status**, player counts, and Steam service health directly on your lovely Steam Deck. 🚀
+This is getting information from official Steam APIs, and also from ProtonDB. (for Trending Games). ⚡
 
 
 ---
 
-## What it does
+## ✨ What it does
 
 Steam Status Decky is a Decky plugin which displays real-time information about Steam services, helping you know when Steam is experiencing issues. The plugin shows:
 
-- **Current player count** - Total users currently logged into Steam
-- **Service status** - Health of Steam Store, Community, and WebAPI
-- **24-hour player history** - Sparkline graph showing player count trends
-- **Regional server status** - Status of Steam servers by region
-- **Trending games** - Top 5 Deck-verified games with biggest player gains
-- **Outage detection** - Automatic detection and notifications for service outages
+- 👥 **Current player count** - Total users currently logged into Steam
+- 🟢 **Service status** - Health of Steam Store, Community, and WebAPI
+- 📊 **24-hour player history** - Sparkline graph showing player count trends
+- 🌍 **Regional server status** - Status of Steam servers by region
+- 🔥 **Trending games** - Top 5 Deck-verified games with biggest player gains
+- 🚨 **Outage detection** - Automatic detection and notifications for service outages
 
 It's making use of a gateway server, developped, hosted and paid by me, so no Steam API is required.
 The gateway server also has a status page, which can be viewed.
 
 ---
 
-## What did I create this
+## 💡 What did I create this
 
 In December 2025, we experienced several Steam service outages. During my active gaming session, issues were occuring in-game, without any clear indication that Steam itself was experiencing problems.
 At the time, we didn't know whether these disruptions were caused by local issues or by a broader Steam service outage. (You know how it goes..."would a reboot resolve our issues").
@@ -43,21 +43,21 @@ This led me to realize that it would be (for me) highly beneficial to receive cl
 
 ---
 
-## Features & Options
+## ⚙️ Features & Options
 
-- **History sparkline**: Visual graph of player counts over the last 24 hours
-- **Regional status**: Expandable view of Steam servers by region (US East, US West, EU West, EU East, Asia)
-- **Trending games**: Top 5 Deck-verified games currently gaining players
-- **Outage notifications**: Get notified when Steam services go down or recover
-- **Anti-flood protection**: Prevents notification spam during gateway or API issues
-- **Network diagnostics**: Test Steam connection latency and internet speed
-- **Configurable refresh interval**: Set automatic refresh from 3-10 minutes, or manual only
-- **Status page link**: Quick access to external status page (default: https://store.steampowered.com/charts/)
-- **Offline mode**: Displays cached data when the network is unavailable
+- 📈 **History sparkline**: Visual graph of player counts over the last 24 hours
+- 🗺️ **Regional status**: Expandable view of Steam servers by region (US East, US West, EU West, EU East, Asia)
+- 🔥 **Trending games**: Top 5 Deck-verified games currently gaining players
+- 🔔 **Outage notifications**: Get notified when Steam services go down or recover
+- 🛡️ **Anti-flood protection**: Prevents notification spam during gateway or API issues
+- 🔍 **Network diagnostics**: Test Steam connection latency and internet speed
+- ⏱️ **Configurable refresh interval**: Set automatic refresh from 3-10 minutes, or manual only
+- 🔗 **Status page link**: Quick access to external status page (default: https://store.steampowered.com/charts/)
+- 📴 **Offline mode**: Displays cached data when the network is unavailable
 
 ---
 
-## Screenshots
+## 📸 Screenshots
 
 <p align="center">
   <img src="assets/screenshot1.jpg" width="45%" />
@@ -77,16 +77,16 @@ This led me to realize that it would be (for me) highly beneficial to receive cl
 
 ---
 
-## Translations
+## 🌐 Translations
 
 The plugin supports localization and will automatically use Steam's language setting.
 I used Google translate (is that AI or isn't it..) for the translations, so the translation could be completely wrong ;)
 
-Pull requests for new translations are welcome.
+Pull requests for new translations are welcome. 🙏
 
 ---
 
-## Compatibility & Testing
+## ✅ Compatibility & Testing
 
 Tested on:
 - **SteamOS 3.9** - Steam Deck LCD - Decky Loader v3.2.1
@@ -95,27 +95,28 @@ Steam Deck OLED has not been tested yet.
 
 ---
 
-## Sponsoring
+## 💖 Sponsoring
 
-If you find this plugin useful and want to support its continued development, you can sponsor me.
+If you find this plugin useful and want to support its continued development, you can sponsor me. ☕
+Keep in mind that I need to pay for server(s) for this.
 
 Your support helps with:
-- Maintenance and bug fixes
-- New features and improvements
-- Ability to develop new plugins
+- 🔧 Maintenance and bug fixes
+- ✨ New features and improvements
+- 🚀 Ability to develop new plugins
 
 ### Support the project
 
-- **GitHub Sponsors**
+- 💜 **GitHub Sponsors**
   https://github.com/sponsors/bschelst
-- **Ko-fi**
+- ☕ **Ko-fi**
   https://ko-fi.com/bschelst
-- **Buy Me a Coffee**
+- ☕ **Buy Me a Coffee**
   https://www.buymeacoffee.com/bschelst
 
 ---
 
-## Requirements
+## 📋 Requirements
 
 - Steam Deck or Linux PC/Bazzite using Steam Big Picture
 - Decky Loader installed
@@ -125,33 +126,33 @@ https://github.com/SteamDeckHomebrew/decky-loader
 
 ---
 
-## Installation (Decky Loader)
+## 📥 Installation (Decky Loader)
 
-> The plugin is not available in the Decky Store **yet** and must be installed manually.
+> ⚠️ The plugin is not available in the Decky Store **yet** and must be installed manually.
 
-1. Download the **latest `.zip` release**:
+1. 📦 Download the **latest `.zip` release**:
    https://github.com/bschelst/steamstatus-decky/releases
 
-2. Open **Game Mode** and launch **Decky Loader**.
+2. 🎮 Open **Game Mode** and launch **Decky Loader**.
 
-3. Enable developer mode in Decky Loader if not enabled yet.
+3. 🔓 Enable developer mode in Decky Loader if not enabled yet.
 
-4. Go to **Decky Settings > Plugins > Install from ZIP**.
+4. ⚙️ Go to **Decky Settings > Plugins > Install from ZIP**.
 
-5. Select the downloaded `steamstatus-decky-<version>.zip`.
+5. ✅ Select the downloaded `steamstatus-decky-<version>.zip`.
 
-6. Restart Steam client.
+6. 🔄 Restart Steam client.
 
-The Steam status panel will appear in the Decky quick access menu.
+The Steam status panel will appear in the Decky quick access menu. 🎉
 
-### Updating
+### 🔄 Updating
 
 To update, install the latest ZIP via Decky Loader.
-Existing settings are preserved.
+Existing settings are preserved. ✨
 
 ---
 
-## Disclaimer
+## ⚠️ Disclaimer
 
 This plugin is an independent, community-developed project and is **not affiliated with, endorsed by, or sponsored by Valve Corporation** or Steam.
 

@@ -17,6 +17,7 @@ interface StatusPanelProps {
   isOffline: boolean;
   lastUpdated: number | null;
   onRefresh: () => void;
+  noWrapper?: boolean;
 }
 
 const REFRESH_COOLDOWN_SECONDS = 30;
@@ -28,6 +29,7 @@ export const StatusPanel: React.FC<StatusPanelProps> = ({
   isOffline,
   lastUpdated,
   onRefresh,
+  noWrapper = false,
 }) => {
   const t = useTranslations();
   const [settings] = useSettings();
@@ -77,9 +79,13 @@ export const StatusPanel: React.FC<StatusPanelProps> = ({
     Navigation.NavigateToExternalWeb(STATUS_PAGE_URL);
   };
 
+  const wrapContent = (content: React.ReactNode) => {
+    return <PanelSection title={noWrapper ? '' : t('steamStatus')}>{content}</PanelSection>;
+  };
+
   if (error && !status) {
-    return (
-      <PanelSection title={t('steamStatus')}>
+    return wrapContent(
+      <>
         <PanelSectionRow>
           <div style={{ color: '#f44336', padding: '8px 0' }}>
             {error}
@@ -90,24 +96,22 @@ export const StatusPanel: React.FC<StatusPanelProps> = ({
             {isLoading ? t('refreshing') : refreshCooldown > 0 ? `${t('retry')} (${refreshCooldown}s)` : t('retry')}
           </ButtonItem>
         </PanelSectionRow>
-      </PanelSection>
+      </>
     );
   }
 
   if (!status) {
-    return (
-      <PanelSection title={t('steamStatus')}>
-        <PanelSectionRow>
-          <div style={{ textAlign: 'center', padding: '16px 0' }}>
-            {isLoading ? t('loading') : t('noDataAvailable')}
-          </div>
-        </PanelSectionRow>
-      </PanelSection>
+    return wrapContent(
+      <PanelSectionRow>
+        <div style={{ textAlign: 'center', padding: '16px 0' }}>
+          {isLoading ? t('loading') : t('noDataAvailable')}
+        </div>
+      </PanelSectionRow>
     );
   }
 
-  return (
-    <PanelSection title={t('steamStatus')}>
+  return wrapContent(
+    <>
       {/* Services Status */}
       <PanelSectionRow>
         <div style={{ width: '100%' }}>
@@ -242,6 +246,6 @@ export const StatusPanel: React.FC<StatusPanelProps> = ({
           </div>
         </PanelSectionRow>
       )}
-    </PanelSection>
+    </>
   );
 };

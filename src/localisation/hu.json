@@ -32,6 +32,8 @@
   "testInternetSpeed": "Internet sebesség tesztelése",
   "testing": "Tesztelés...",
   "testFailed": "Teszt sikertelen",
+  "testCancelled": "Teszt megszakítva",
+  "stop": "Megállít",
 
   "links": "Linkek",
   "helpAndDocumentation": "Súgó és dokumentáció",

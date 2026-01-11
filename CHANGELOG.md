@@ -3,10 +3,19 @@
 All important changes are mentioned here.
 
 
-## [1.2.1] - 2026-01-10
+## [1.2.1] - 2026-01-11
 
 ### Added
-- **Network diagnostics tools**: Test Steam connection latency and internet speed directly from the plugin. Includes Steam CM latency test and internet speed test.
+- **Network diagnostics tools**: Test Steam connection latency and internet speed directly from the plugin
+  - **Steam CM latency test**: Fetches official Connection Manager server list from Steam API and tests a sample to find your best connection. Location-aware testing provides accurate latency to your nearest Steam servers
+  - **Internet speed test**: Downloads 100MB file to measure download speed and estimate upload speed. Includes progress bar and stop button
+  - Test results display with green checkmark icons for better visual feedback
+- **Improved UI organization**: All major sections (Steam Status, Service Status, Network Diagnostics, Links, About, Settings) are now collapsible with consistent green icons for better navigation
+- **Enhanced help documentation**: Added comprehensive descriptions for network diagnostics tests and all plugin settings, explaining their purpose and behavior
+- **Visual improvements**: README.md now includes emojis throughout for better readability and visual appeal
+
+### Changed
+- Steam Status section is now collapsible but expanded by default for quick access to main status information
 
 ## [1.2.0] - 2026-01-10
 

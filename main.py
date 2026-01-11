@@ -255,52 +255,84 @@ class Plugin:
             }
 
     async def test_steam_latency(self) -> dict:
-        """Test latency to Steam Connection Managers."""
+        """Test latency to Steam Connection Managers using Steam's official CM list."""
         decky_plugin.logger.info("[test_steam_latency] Testing Steam CM latency...")
         try:
-            # List of Steam CM servers to test (major regions)
-            cm_servers = [
-                ("162.254.197.40", "US West"),
-                ("162.254.197.41", "US East"),
-                ("155.133.246.50", "EU West"),
-                ("155.133.246.51", "EU Central"),
-                ("103.28.54.10", "Asia"),
-            ]
+            def fetch_and_test_cms():
+                """Fetch CM list from Steam and test latency."""
+                import json
 
-            best_latency = None
-            best_server = None
+                # Fetch the official Steam CM list
+                ssl_context = ssl.create_default_context()
+                ssl_context.check_hostname = False
+                ssl_context.verify_mode = ssl.CERT_NONE
 
-            def test_ping(host, port=27017):
-                """Test latency to a host by measuring TCP connection time."""
                 try:
-                    start_time = time.time()
-                    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-                    sock.settimeout(2)
-                    sock.connect((host, port))
-                    sock.close()
-                    latency_ms = (time.time() - start_time) * 1000
-                    return latency_ms
-                except:
-                    return None
+                    with urllib.request.urlopen(
+                        "https://api.steampowered.com/ISteamDirectory/GetCMList/v1/?cellid=0",
+                        context=ssl_context,
+                        timeout=5
+                    ) as response:
+                        data = json.loads(response.read())
+                        cm_list = data.get('response', {}).get('serverlist', [])
 
-            # Test all servers
+                        if not cm_list:
+                            raise Exception("No CM servers in response")
+
+                        decky_plugin.logger.info(f"[test_steam_latency] Found {len(cm_list)} CM servers")
+
+                        # Test up to 10 random CMs to find the best one
+                        import random
+                        test_sample = random.sample(cm_list, min(10, len(cm_list)))
+
+                        best_latency = None
+                        best_endpoint = None
+
+                        for endpoint in test_sample:
+                            # Parse endpoint (format: "host:port")
+                            if ':' in endpoint:
+                                host, port = endpoint.split(':', 1)
+                                port = int(port)
+                            else:
+                                host = endpoint
+                                port = 27017
+
+                            try:
+                                start_time = time.time()
+                                sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+                                sock.settimeout(2)
+                                sock.connect((host, port))
+                                sock.close()
+                                latency_ms = (time.time() - start_time) * 1000
+
+                                if best_latency is None or latency_ms < best_latency:
+                                    best_latency = latency_ms
+                                    best_endpoint = host
+
+                                decky_plugin.logger.info(f"[test_steam_latency] {host}: {latency_ms:.0f}ms")
+                            except Exception as e:
+                                decky_plugin.logger.debug(f"[test_steam_latency] {host} failed: {e}")
+                                continue
+
+                        if best_latency is not None:
+                            return (best_latency, best_endpoint)
+                        else:
+                            raise Exception("Could not reach any CM servers")
+
+                except Exception as e:
+                    decky_plugin.logger.error(f"[test_steam_latency] CM list fetch failed: {e}")
+                    raise
+
+            # Run in thread pool
             loop = asyncio.get_running_loop()
             with ThreadPoolExecutor() as executor:
-                for host, region in cm_servers:
-                    latency = await loop.run_in_executor(executor, test_ping, host)
-                    if latency is not None:
-                        if best_latency is None or latency < best_latency:
-                            best_latency = latency
-                            best_server = region
+                best_latency, best_endpoint = await loop.run_in_executor(executor, fetch_and_test_cms)
 
-            if best_latency is not None:
-                decky_plugin.logger.info(f"[test_steam_latency] Best: {best_server} ({best_latency:.0f}ms)")
-                return {
-                    "latency_ms": int(best_latency),
-                    "cm_server": best_server
-                }
-            else:
-                raise Exception("Could not reach any Steam servers")
+            decky_plugin.logger.info(f"[test_steam_latency] Best: {best_endpoint} ({best_latency:.0f}ms)")
+            return {
+                "latency_ms": int(best_latency),
+                "cm_server": best_endpoint
+            }
 
         except Exception as e:
             decky_plugin.logger.error(f"[test_steam_latency] Failed: {e}")

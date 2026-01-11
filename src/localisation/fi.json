@@ -32,6 +32,8 @@
   "testInternetSpeed": "Testaa Internet-nopeus",
   "testing": "Testataan...",
   "testFailed": "Testi epäonnistui",
+  "testCancelled": "Testi peruutettu",
+  "stop": "Pysäytä",
 
   "links": "Linkit",
   "helpAndDocumentation": "Ohje ja dokumentaatio",

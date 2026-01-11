@@ -32,6 +32,8 @@
   "testInternetSpeed": "インターネット速度をテスト",
   "testing": "テスト中...",
   "testFailed": "テスト失敗",
+  "testCancelled": "テストキャンセル",
+  "stop": "停止",
 
   "links": "リンク",
   "helpAndDocumentation": "ヘルプとドキュメント",

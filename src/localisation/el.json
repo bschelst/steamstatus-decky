@@ -32,6 +32,8 @@
   "testInternetSpeed": "Δοκιμή ταχύτητας Internet",
   "testing": "Δοκιμή...",
   "testFailed": "Η δοκιμή απέτυχε",
+  "testCancelled": "Η δοκιμή ακυρώθηκε",
+  "stop": "Διακοπή",
 
   "links": "Σύνδεσμοι",
   "helpAndDocumentation": "Βοήθεια & Τεκμηρίωση",

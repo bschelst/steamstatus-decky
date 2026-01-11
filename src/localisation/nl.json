@@ -30,6 +30,8 @@
   "testInternetSpeed": "Test internetsnelheid",
   "testing": "Testen...",
   "testFailed": "Test mislukt",
+  "testCancelled": "Test geannuleerd",
+  "stop": "Stop",
 
   "links": "Links",
   "helpAndDocumentation": "Help & documentatie",

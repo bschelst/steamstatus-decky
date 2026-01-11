@@ -32,6 +32,8 @@
   "testInternetSpeed": "测试网速",
   "testing": "测试中...",
   "testFailed": "测试失败",
+  "testCancelled": "测试已取消",
+  "stop": "停止",
 
   "links": "链接",
   "helpAndDocumentation": "帮助与文档",

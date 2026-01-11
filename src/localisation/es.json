@@ -32,6 +32,8 @@
   "testInternetSpeed": "Probar velocidad de Internet",
   "testing": "Probando...",
   "testFailed": "Prueba fallida",
+  "testCancelled": "Prueba cancelada",
+  "stop": "Detener",
 
   "links": "Enlaces",
   "helpAndDocumentation": "Ayuda y documentación",

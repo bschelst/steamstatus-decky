@@ -10,6 +10,8 @@ import {
   FaInfoCircle,
   FaGamepad,
   FaDownload,
+  FaNetworkWired,
+  FaTachometerAlt,
 } from 'react-icons/fa';
 import useTranslations from '../hooks/useTranslations';
 
@@ -335,7 +337,7 @@ const HelpModal: FC<HelpModalProps> = ({ closeModal }) => {
                 </p>
               </div>
 
-              <div>
+              <div style={{ marginBottom: '16px' }}>
                 <div
                   style={{
                     display: 'flex',
@@ -350,6 +352,82 @@ const HelpModal: FC<HelpModalProps> = ({ closeModal }) => {
                 <p style={{ lineHeight: '1.5', marginLeft: '22px' }}>
                   {t('autoUpdateFeatureDesc')}
                 </p>
+              </div>
+
+              <div style={{ marginBottom: '16px' }}>
+                <div
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    marginBottom: '4px',
+                  }}
+                >
+                  <FaNetworkWired size={14} />
+                  <strong>{t('networkDiagnosticsFeature')}</strong>
+                </div>
+                <p style={{ lineHeight: '1.5', marginLeft: '22px', marginBottom: '12px' }}>
+                  {t('networkDiagnosticsFeatureDesc')}
+                </p>
+                <div style={{ marginLeft: '22px' }}>
+                  <div style={{ marginBottom: '8px' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '2px' }}>
+                      <FaTachometerAlt size={12} style={{ opacity: 0.7 }} />
+                      <strong style={{ fontSize: '13px' }}>{t('steamLatencyTest')}</strong>
+                    </div>
+                    <p style={{ lineHeight: '1.4', fontSize: '12px', opacity: 0.85 }}>
+                      {t('steamLatencyTestDesc')}
+                    </p>
+                  </div>
+                  <div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '2px' }}>
+                      <FaTachometerAlt size={12} style={{ opacity: 0.7 }} />
+                      <strong style={{ fontSize: '13px' }}>{t('internetSpeedTest')}</strong>
+                    </div>
+                    <p style={{ lineHeight: '1.4', fontSize: '12px', opacity: 0.85 }}>
+                      {t('internetSpeedTestDesc')}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <div
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    marginBottom: '4px',
+                  }}
+                >
+                  <FaCog size={14} />
+                  <strong>{t('settingsFeature')}</strong>
+                </div>
+                <p style={{ lineHeight: '1.5', marginLeft: '22px', marginBottom: '12px' }}>
+                  Configure plugin behavior and appearance.
+                </p>
+                <div style={{ marginLeft: '22px', fontSize: '13px' }}>
+                  <ul style={{ paddingLeft: '20px', lineHeight: '1.6' }}>
+                    <li style={{ marginBottom: '8px' }}>
+                      <strong>{t('settingsRefreshInterval')}</strong> - {t('settingsRefreshIntervalDesc')}
+                    </li>
+                    <li style={{ marginBottom: '8px' }}>
+                      <strong>{t('settingsShowHistory')}</strong> - {t('settingsShowHistoryDesc')}
+                    </li>
+                    <li style={{ marginBottom: '8px' }}>
+                      <strong>{t('settingsShowTrendingGames')}</strong> - {t('settingsShowTrendingGamesDesc')}
+                    </li>
+                    <li style={{ marginBottom: '8px' }}>
+                      <strong>{t('settingsCheckForUpdates')}</strong> - {t('settingsCheckForUpdatesDesc')}
+                    </li>
+                    <li style={{ marginBottom: '8px' }}>
+                      <strong>{t('settingsEnableNotifications')}</strong> - {t('settingsEnableNotificationsDesc')}
+                    </li>
+                    <li>
+                      <strong>{t('settingsEnableNotificationAntiflood')}</strong> - {t('settingsEnableNotificationAntifloodDesc')}
+                    </li>
+                  </ul>
+                </div>
               </div>
             </HelpSection>
           </Focusable>

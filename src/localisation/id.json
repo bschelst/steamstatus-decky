@@ -32,6 +32,8 @@
   "testInternetSpeed": "Uji kecepatan Internet",
   "testing": "Menguji...",
   "testFailed": "Tes gagal",
+  "testCancelled": "Tes dibatalkan",
+  "stop": "Berhenti",
 
   "links": "Tautan",
   "helpAndDocumentation": "Bantuan & Dokumentasi",

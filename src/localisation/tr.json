@@ -32,6 +32,8 @@
   "testInternetSpeed": "İnternet hızını test et",
   "testing": "Test ediliyor...",
   "testFailed": "Test başarısız",
+  "testCancelled": "Test iptal edildi",
+  "stop": "Durdur",
 
   "links": "Bağlantılar",
   "helpAndDocumentation": "Yardım ve belgeler",

@@ -32,6 +32,8 @@
   "testInternetSpeed": "測試網速",
   "testing": "測試中...",
   "testFailed": "測試失敗",
+  "testCancelled": "測試已取消",
+  "stop": "停止",
 
   "links": "連結",
   "helpAndDocumentation": "說明與文件",

@@ -32,6 +32,8 @@
   "testInternetSpeed": "Тествай скорост на интернета",
   "testing": "Тестване...",
   "testFailed": "Тестът се провали",
+  "testCancelled": "Тестът е отменен",
+  "stop": "Спри",
 
   "links": "Връзки",
   "helpAndDocumentation": "Помощ и документация",

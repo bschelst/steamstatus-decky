@@ -32,6 +32,8 @@
   "testInternetSpeed": "Kiểm tra tốc độ Internet",
   "testing": "Đang kiểm tra...",
   "testFailed": "Kiểm tra thất bại",
+  "testCancelled": "Kiểm tra đã hủy",
+  "stop": "Dừng",
 
   "links": "Liên kết",
   "helpAndDocumentation": "Trợ giúp & Tài liệu",

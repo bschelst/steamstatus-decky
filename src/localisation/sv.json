@@ -32,6 +32,8 @@
   "testInternetSpeed": "Testa Internethastighet",
   "testing": "Testar...",
   "testFailed": "Test misslyckades",
+  "testCancelled": "Test avbruten",
+  "stop": "Stoppa",
 
   "links": "Länkar",
   "helpAndDocumentation": "Hjälp och dokumentation",
