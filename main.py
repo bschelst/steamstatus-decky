@@ -20,6 +20,10 @@ DEFAULT_SETTINGS = {
     "refresh_interval_seconds": 120,
     "show_regions": True,
     "show_history": True,
+    "enable_notifications": True,
+    "enable_notification_antiflood": True,
+    "show_trending_games": True,
+    "check_for_updates": True,
 }
 
 

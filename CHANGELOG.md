@@ -3,6 +3,11 @@
 All important changes are mentioned here.
 
 
+## [1.2.3] - 2026-01-12
+
+### Fixed
+- **Settings persistence**: Fixed critical bug where settings changes were not being saved. Caused by my stupidity.
+
 ## [1.2.2] - 2026-01-12
 
 ### Fixed
@@ -73,6 +78,7 @@ All important changes are mentioned here.
 - Gateway-based architecture for efficient data fetching
 - Decky Loader plugin interface
 
+[1.2.3]: https://github.com/bschelst/steamstatus-decky/compare/v1.2.2...v1.2.3
 [1.2.2]: https://github.com/bschelst/steamstatus-decky/compare/v1.2.1...v1.2.2
 [1.2.1]: https://github.com/bschelst/steamstatus-decky/compare/v1.2.0...v1.2.1
 [1.2.0]: https://github.com/bschelst/steamstatus-decky/compare/v1.1.0...v1.2.0

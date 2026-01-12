@@ -1,4 +1,4 @@
-export const PLUGIN_VERSION = '1.2.2';
+export const PLUGIN_VERSION = '1.2.3';
 
 export const STATUS_PAGE_URL = 'https://steamstatus.schelstraete.org/status';
 

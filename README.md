@@ -13,7 +13,8 @@
 
 
 Display **real-time Steam status**, player counts, and Steam service health directly on your lovely Steam Deck. 🚀
-This is getting information from official Steam APIs, and also from ProtonDB. (for Trending Games). ⚡
+
+The plugin aggregates information from official Steam APIs and ProtonDB through a dedicated gateway server, providing reliable status data without requiring a Steam API key. ⚡
 
 
 ---
@@ -29,8 +30,22 @@ Steam Status Decky is a Decky plugin which displays real-time information about 
 - 🔥 **Trending games** - Top 5 Deck-verified games with biggest player gains
 - 🚨 **Outage detection** - Automatic detection and notifications for service outages
 
-It's making use of a gateway server, developped, hosted and paid by me, so no Steam API is required.
-The gateway server also has a status page, which can be viewed.
+---
+
+## 🌐 Gateway & Status Page
+
+This plugin uses a **gateway server** to fetch Steam status data. The gateway aggregates information from official Steam APIs and caches it efficiently, so the plugin doesn't directly hit Steam's servers with every request.
+
+**Why a gateway?**
+- Reduces load on Steam's API infrastructure
+- Provides consistent, reliable data access
+- No Steam API key required for end users
+- Enables advanced features like outage tracking and historical data
+
+The gateway is developed, hosted, and maintained by me.
+
+**Live Status Dashboard:** You can view the current Steam status and outage history on the public status page:
+🔗 **https://steamstatus.schelstraete.org/status**
 
 ---
 
@@ -52,7 +67,7 @@ This led me to realize that it would be (for me) highly beneficial to receive cl
 - 🛡️ **Anti-flood protection**: Prevents notification spam during gateway or API issues
 - 🔍 **Network diagnostics**: Test Steam connection latency and internet speed
 - ⏱️ **Configurable refresh interval**: Set automatic refresh from 3-10 minutes, or manual only
-- 🔗 **Status page link**: Quick access to external status page 
+- 🔗 **Status page**: View detailed status and outage history at https://steamstatus.schelstraete.org/status
 - 📴 **Offline mode**: Displays cached data when the network is unavailable
 
 ---
@@ -80,7 +95,7 @@ This led me to realize that it would be (for me) highly beneficial to receive cl
 ## 🌐 Translations
 
 The plugin supports localization and will automatically use Steam's language setting.
-I used Google translate (is that AI or isn't it..) for the translations, so the translation could be completely wrong ;)
+I used Google translate (is that AI or isn't it..) for the translations, so the translation could be compleeeeetely wrong ;)
 
 Pull requests for new translations are welcome. 🙏
 
@@ -98,11 +113,13 @@ Steam Deck OLED has not been tested yet.
 ## 💖 Sponsoring
 
 If you find this plugin useful and want to support its continued development, you can sponsor me. ☕
-Keep in mind that I need to pay for server(s) for this.
+
+The gateway server infrastructure has ongoing hosting costs, and your support helps keep it running and available for everyone.
 
 Your support helps with:
-- 🔧 Maintenance and bug fixes
-- ✨ New features and improvements
+- 🖥️ Gateway server hosting and maintenance
+- 🔧 Bug fixes and plugin improvements
+- ✨ New features and enhancements
 - 🚀 Ability to develop new plugins
 
 ### Support the project
