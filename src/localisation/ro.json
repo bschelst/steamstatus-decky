@@ -2,8 +2,8 @@
   "steamStatus": "Stare Steam",
   "playersOnlineTitle": "Jucători online",
   "playersOnline": "Jucători online:",
-  "maxPlayersLastDay": "Max. jucători (ultima zi):",
-  "avgPlayersLastDay": "Med. jucători (ultima zi):",
+  "maxPlayersLastDay": "Max. jucători (ultimele 48h):",
+  "avgPlayersLastDay": "Med. jucători (ultimele 48h):",
   "loading": "Se încarcă...",
   "noDataAvailable": "Nu sunt date disponibile",
   "refreshing": "Se reîmprospătează...",
@@ -14,7 +14,7 @@
   "cached": "(Din cache)",
 
   "trendingGames": "Jocuri populare",
-  "trendingGamesSubtitle": "Schimbare jucători 48h (verificat Deck)",
+  "trendingGamesSubtitle": "Schimbare jucători 72h (verificat Deck)",
 
   "serviceStatus": "Stare serviciu",
   "activeOutage": "Întrerupere activă",

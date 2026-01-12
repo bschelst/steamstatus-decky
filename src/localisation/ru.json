@@ -2,8 +2,8 @@
   "steamStatus": "Статус Steam",
   "playersOnlineTitle": "Игроков онлайн",
   "playersOnline": "Игроков онлайн:",
-  "maxPlayersLastDay": "Макс. игроков (за день):",
-  "avgPlayersLastDay": "Сред. игроков (за день):",
+  "maxPlayersLastDay": "Макс. игроков (за 48ч):",
+  "avgPlayersLastDay": "Сред. игроков (за 48ч):",
   "loading": "Загрузка...",
   "noDataAvailable": "Нет данных",
   "refreshing": "Обновление...",
@@ -14,7 +14,7 @@
   "cached": "(Из кэша)",
 
   "trendingGames": "Популярные игры",
-  "trendingGamesSubtitle": "Изменение за 48ч (проверено для Deck)",
+  "trendingGamesSubtitle": "Изменение за 72ч (проверено для Deck)",
 
   "serviceStatus": "Статус сервиса",
   "activeOutage": "Активный сбой",

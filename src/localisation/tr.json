@@ -2,8 +2,8 @@
   "steamStatus": "Steam Durumu",
   "playersOnlineTitle": "Çevrimiçi Oyuncular",
   "playersOnline": "Çevrimiçi Oyuncular:",
-  "maxPlayersLastDay": "Maks. oyuncu (son gün):",
-  "avgPlayersLastDay": "Ort. oyuncu (son gün):",
+  "maxPlayersLastDay": "Maks. oyuncu (son 48 saat):",
+  "avgPlayersLastDay": "Ort. oyuncu (son 48 saat):",
   "loading": "Yükleniyor...",
   "noDataAvailable": "Veri mevcut değil",
   "refreshing": "Yenileniyor...",
@@ -14,7 +14,7 @@
   "cached": "(Önbellekten)",
 
   "trendingGames": "Popüler Oyunlar",
-  "trendingGamesSubtitle": "48 saatlik oyuncu değişimi (Deck onaylı)",
+  "trendingGamesSubtitle": "72 saatlik oyuncu değişimi (Deck onaylı)",
 
   "serviceStatus": "Servis Durumu",
   "activeOutage": "Aktif Kesinti",

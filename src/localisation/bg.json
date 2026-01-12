@@ -2,8 +2,8 @@
   "steamStatus": "Състояние на Steam",
   "playersOnlineTitle": "Играчи онлайн",
   "playersOnline": "Играчи онлайн:",
-  "maxPlayersLastDay": "Макс. играчи (последен ден):",
-  "avgPlayersLastDay": "Сред. играчи (последен ден):",
+  "maxPlayersLastDay": "Макс. играчи (последни 48ч):",
+  "avgPlayersLastDay": "Сред. играчи (последни 48ч):",
   "loading": "Зареждане...",
   "noDataAvailable": "Няма налични данни",
   "refreshing": "Опресняване...",
@@ -14,7 +14,7 @@
   "cached": "(Кеширано)",
 
   "trendingGames": "Популярни игри",
-  "trendingGamesSubtitle": "48ч промяна на играчите (Deck верифицирано)",
+  "trendingGamesSubtitle": "72ч промяна на играчите (Deck верифицирано)",
 
   "serviceStatus": "Състояние на услугата",
   "activeOutage": "Активен прекъсване",

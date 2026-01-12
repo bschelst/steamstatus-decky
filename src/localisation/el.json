@@ -2,8 +2,8 @@
   "steamStatus": "Κατάσταση Steam",
   "playersOnlineTitle": "Παίκτες Online",
   "playersOnline": "Παίκτες Online:",
-  "maxPlayersLastDay": "Μέγ. παίκτες (τελευταία μέρα):",
-  "avgPlayersLastDay": "Μέσος όρος παικτών (τελευταία μέρα):",
+  "maxPlayersLastDay": "Μέγ. παίκτες (τελευταίες 48ω):",
+  "avgPlayersLastDay": "Μέσος όρος παικτών (τελευταίες 48ω):",
   "loading": "Φόρτωση...",
   "noDataAvailable": "Δεν υπάρχουν διαθέσιμα δεδομένα",
   "refreshing": "Ανανέωση...",
@@ -14,7 +14,7 @@
   "cached": "(Αποθηκευμένο)",
 
   "trendingGames": "Δημοφιλή παιχνίδια",
-  "trendingGamesSubtitle": "Αλλαγή παικτών 48ω (επαληθευμένο Deck)",
+  "trendingGamesSubtitle": "Αλλαγή παικτών 72ω (επαληθευμένο Deck)",
 
   "serviceStatus": "Κατάσταση υπηρεσίας",
   "activeOutage": "Ενεργή διακοπή",

@@ -2,8 +2,8 @@
   "steamStatus": "Steam-status",
   "playersOnlineTitle": "Spillere online",
   "playersOnline": "Spillere online:",
-  "maxPlayersLastDay": "Maks spillere (sidste dag):",
-  "avgPlayersLastDay": "Gns. spillere (sidste dag):",
+  "maxPlayersLastDay": "Maks spillere (sidste 48t):",
+  "avgPlayersLastDay": "Gns. spillere (sidste 48t):",
   "loading": "Indlæser...",
   "noDataAvailable": "Ingen data tilgængelig",
   "refreshing": "Opdaterer...",
@@ -14,7 +14,7 @@
   "cached": "(Cachelagret)",
 
   "trendingGames": "Populære spil",
-  "trendingGamesSubtitle": "48t spillerændring (Deck-verificeret)",
+  "trendingGamesSubtitle": "72t spillerændring (Deck-verificeret)",
 
   "serviceStatus": "Tjenestestatus",
   "activeOutage": "Aktivt nedbrud",

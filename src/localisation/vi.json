@@ -2,8 +2,8 @@
   "steamStatus": "Trạng thái Steam",
   "playersOnlineTitle": "Người chơi trực tuyến",
   "playersOnline": "Người chơi trực tuyến:",
-  "maxPlayersLastDay": "Người chơi tối đa (ngày trước):",
-  "avgPlayersLastDay": "Người chơi trung bình (ngày trước):",
+  "maxPlayersLastDay": "Người chơi tối đa (48 giờ trước):",
+  "avgPlayersLastDay": "Người chơi trung bình (48 giờ trước):",
   "loading": "Đang tải...",
   "noDataAvailable": "Không có dữ liệu",
   "refreshing": "Đang làm mới...",
@@ -14,7 +14,7 @@
   "cached": "(Bộ nhớ đệm)",
 
   "trendingGames": "Trò chơi thịnh hành",
-  "trendingGamesSubtitle": "Thay đổi người chơi 48h (đã xác minh Deck)",
+  "trendingGamesSubtitle": "Thay đổi người chơi 72h (đã xác minh Deck)",
 
   "serviceStatus": "Trạng thái dịch vụ",
   "activeOutage": "Gián đoạn đang hoạt động",

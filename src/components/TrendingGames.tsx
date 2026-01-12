@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { PanelSectionRow, Focusable, Navigation } from '@decky/ui';
+import { Focusable, Navigation } from '@decky/ui';
 import { FaChevronDown, FaChevronUp, FaGamepad, FaArrowUp, FaArrowDown } from 'react-icons/fa';
 import { TrendingGame } from '../../types/types';
 import { formatPlayerCount } from '../utils/formatters';
@@ -10,6 +10,81 @@ const openStorePage = (appid: number) => {
   Navigation.NavigateToExternalWeb(`https://store.steampowered.com/app/${appid}`);
 };
 
+interface TrendingGameItemProps {
+  game: TrendingGame;
+  index: number;
+}
+
+const TrendingGameItem: React.FC<TrendingGameItemProps> = ({ game, index }) => {
+  const [isFocused, setIsFocused] = useState(false);
+
+  return (
+    <Focusable
+      onActivate={() => openStorePage(game.appid)}
+      onFocus={() => setIsFocused(true)}
+      onBlur={() => setIsFocused(false)}
+      style={{ cursor: 'pointer' }}
+    >
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          width: '100%',
+          padding: '8px',
+          borderRadius: '4px',
+          background: isFocused ? 'rgba(139, 195, 74, 0.1)' : 'transparent',
+          transition: 'background 0.2s ease',
+        }}
+      >
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <span
+            style={{
+              fontSize: '11px',
+              color: '#888',
+              width: '16px',
+            }}
+          >
+            {index + 1}.
+          </span>
+          <span
+            style={{
+              fontSize: '13px',
+              maxWidth: '140px',
+              overflow: 'hidden',
+              textOverflow: 'ellipsis',
+              whiteSpace: 'nowrap',
+            }}
+          >
+            {game.name}
+          </span>
+        </div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <span style={{ fontSize: '12px', color: '#888' }}>
+            {formatPlayerCount(game.current_players)}
+          </span>
+          <span
+            style={{
+              fontSize: '11px',
+              color: game.gain_48h >= 0 ? '#4caf50' : '#f44336',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '2px',
+            }}
+          >
+            {game.gain_48h >= 0 ? (
+              <FaArrowUp size={8} />
+            ) : (
+              <FaArrowDown size={8} />
+            )}
+            {formatPlayerCount(Math.abs(game.gain_48h))}
+          </span>
+        </div>
+      </div>
+    </Focusable>
+  );
+};
+
 interface TrendingGamesProps {
   games: TrendingGame[];
 }
@@ -17,6 +92,7 @@ interface TrendingGamesProps {
 export const TrendingGamesPanel: React.FC<TrendingGamesProps> = ({ games }) => {
   const t = useTranslations();
   const [isExpanded, setIsExpanded] = useState(false);
+  const [isFocused, setIsFocused] = useState(false);
 
   if (!games || games.length === 0) {
     return null;
@@ -29,12 +105,17 @@ export const TrendingGamesPanel: React.FC<TrendingGamesProps> = ({ games }) => {
     <div style={{ marginTop: '8px' }}>
       <Focusable
         onActivate={() => setIsExpanded(!isExpanded)}
+        onFocus={() => setIsFocused(true)}
+        onBlur={() => setIsFocused(false)}
         style={{
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          padding: '8px 0',
+          padding: '8px',
           cursor: 'pointer',
+          borderRadius: '4px',
+          background: isFocused ? 'rgba(139, 195, 74, 0.1)' : 'transparent',
+          transition: 'background 0.2s ease',
         }}
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
@@ -52,66 +133,7 @@ export const TrendingGamesPanel: React.FC<TrendingGamesProps> = ({ games }) => {
       {isExpanded && (
         <div style={{ paddingLeft: '12px' }}>
           {games.map((game, index) => (
-            <Focusable
-              key={game.appid}
-              onActivate={() => openStorePage(game.appid)}
-              style={{ cursor: 'pointer' }}
-            >
-              <PanelSectionRow>
-                <div
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                    width: '100%',
-                  }}
-                >
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <span
-                      style={{
-                        fontSize: '11px',
-                        color: '#888',
-                        width: '16px',
-                      }}
-                    >
-                      {index + 1}.
-                    </span>
-                    <span
-                      style={{
-                        fontSize: '13px',
-                        maxWidth: '140px',
-                        overflow: 'hidden',
-                        textOverflow: 'ellipsis',
-                        whiteSpace: 'nowrap',
-                      }}
-                    >
-                      {game.name}
-                    </span>
-                  </div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <span style={{ fontSize: '12px', color: '#888' }}>
-                      {formatPlayerCount(game.current_players)}
-                    </span>
-                    <span
-                      style={{
-                        fontSize: '11px',
-                        color: game.gain_48h >= 0 ? '#4caf50' : '#f44336',
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '2px',
-                      }}
-                    >
-                      {game.gain_48h >= 0 ? (
-                        <FaArrowUp size={8} />
-                      ) : (
-                        <FaArrowDown size={8} />
-                      )}
-                      {formatPlayerCount(Math.abs(game.gain_48h))}
-                    </span>
-                  </div>
-                </div>
-              </PanelSectionRow>
-            </Focusable>
+            <TrendingGameItem key={game.appid} game={game} index={index} />
           ))}
           <div
             style={{

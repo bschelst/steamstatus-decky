@@ -2,8 +2,8 @@
   "steamStatus": "Status Steam",
   "playersOnlineTitle": "Pemain Online",
   "playersOnline": "Pemain Online:",
-  "maxPlayersLastDay": "Maks. pemain (hari terakhir):",
-  "avgPlayersLastDay": "Rata-rata pemain (hari terakhir):",
+  "maxPlayersLastDay": "Maks. pemain (48 jam terakhir):",
+  "avgPlayersLastDay": "Rata-rata pemain (48 jam terakhir):",
   "loading": "Memuat...",
   "noDataAvailable": "Tidak ada data tersedia",
   "refreshing": "Menyegarkan...",
@@ -14,7 +14,7 @@
   "cached": "(Dari cache)",
 
   "trendingGames": "Game Populer",
-  "trendingGamesSubtitle": "Perubahan pemain 48 jam (terverifikasi Deck)",
+  "trendingGamesSubtitle": "Perubahan pemain 72 jam (terverifikasi Deck)",
 
   "serviceStatus": "Status Layanan",
   "activeOutage": "Gangguan Aktif",

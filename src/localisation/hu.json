@@ -2,8 +2,8 @@
   "steamStatus": "Steam állapot",
   "playersOnlineTitle": "Online játékosok",
   "playersOnline": "Online játékosok:",
-  "maxPlayersLastDay": "Max. játékosok (utolsó nap):",
-  "avgPlayersLastDay": "Átl. játékosok (utolsó nap):",
+  "maxPlayersLastDay": "Max. játékosok (utolsó 48h):",
+  "avgPlayersLastDay": "Átl. játékosok (utolsó 48h):",
   "loading": "Betöltés...",
   "noDataAvailable": "Nincs elérhető adat",
   "refreshing": "Frissítés...",
@@ -14,7 +14,7 @@
   "cached": "(Gyorsítótárazott)",
 
   "trendingGames": "Felkapott játékok",
-  "trendingGamesSubtitle": "48 órás játékosváltozás (Deck ellenőrzött)",
+  "trendingGamesSubtitle": "72 órás játékosváltozás (Deck ellenőrzött)",
 
   "serviceStatus": "Szolgáltatás állapota",
   "activeOutage": "Aktív leállás",

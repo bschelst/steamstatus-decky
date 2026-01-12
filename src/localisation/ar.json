@@ -2,8 +2,8 @@
   "steamStatus": "حالة Steam",
   "playersOnlineTitle": "اللاعبون المتصلون",
   "playersOnline": "اللاعبون المتصلون:",
-  "maxPlayersLastDay": "أقصى عدد لاعبين (اليوم الأخير):",
-  "avgPlayersLastDay": "متوسط اللاعبين (اليوم الأخير):",
+  "maxPlayersLastDay": "أقصى عدد لاعبين (آخر 48 ساعة):",
+  "avgPlayersLastDay": "متوسط اللاعبين (آخر 48 ساعة):",
   "loading": "جارٍ التحميل...",
   "noDataAvailable": "لا توجد بيانات متاحة",
   "refreshing": "جارٍ التحديث...",
@@ -14,7 +14,7 @@
   "cached": "(مخزن مؤقتاً)",
 
   "trendingGames": "الألعاب الرائجة",
-  "trendingGamesSubtitle": "تغيير اللاعبين خلال 48 ساعة (معتمد لـ Deck)",
+  "trendingGamesSubtitle": "تغيير اللاعبين خلال 72 ساعة (معتمد لـ Deck)",
 
   "serviceStatus": "حالة الخدمة",
   "activeOutage": "انقطاع نشط",

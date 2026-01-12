@@ -1,8 +1,59 @@
 import { toaster } from '@decky/api';
-import { FaExclamationTriangle } from 'react-icons/fa';
+import { Navigation } from '@decky/ui';
+import { FaSteam, FaExclamationTriangle, FaCheckCircle } from 'react-icons/fa';
 import React from 'react';
 import { SteamStatus } from '../../types/types';
 import { DEFAULT_SETTINGS } from '../constants';
+
+// Create notification logo with Steam icon and corner badge
+// Note: Steam notification system uses dynamic sizing - we use 1em units to scale with system font
+// Typical notification logo container is ~40-48px, so 1em = base size, relative units scale appropriately
+function createNotificationLogo(badgeIcon: typeof FaExclamationTriangle | typeof FaCheckCircle, badgeColor: string) {
+  return React.createElement('div', {
+    style: {
+      position: 'relative',
+      width: '1em',
+      height: '1em',
+      fontSize: '36px', // Base size - Steam will scale this
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+    }
+  }, [
+    // Steam logo (main icon)
+    React.createElement(FaSteam, {
+      key: 'steam',
+      style: {
+        color: '#66c0f4',
+        fontSize: '1em',
+        width: '1em',
+        height: '1em',
+      }
+    }),
+    // Badge in corner
+    React.createElement('div', {
+      key: 'badge',
+      style: {
+        position: 'absolute',
+        bottom: '-0.05em',
+        right: '-0.05em',
+        width: '0.5em',
+        height: '0.5em',
+        backgroundColor: '#1b2838',
+        borderRadius: '50%',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        border: '0.05em solid #1b2838',
+      }
+    }, React.createElement(badgeIcon, {
+      style: {
+        fontSize: '0.33em',
+        color: badgeColor,
+      }
+    }))
+  ]);
+}
 
 // Module-level state for background monitoring
 let monitorInterval: ReturnType<typeof setInterval> | null = null;
@@ -112,7 +163,8 @@ function checkForOutageAndNotify(status: SteamStatus, enableNotifications: boole
       toaster.toast({
         title: 'Steam Service Outage',
         body: `Services affected: ${affectedServices}`,
-        icon: React.createElement(FaExclamationTriangle, { color: '#ff9800' }),
+        logo: createNotificationLogo(FaExclamationTriangle, '#ff9800'),
+        onClick: () => Navigation.NavigateToExternalWeb('https://steamstatus.schelstraete.org/status'),
         duration: 8000,
         critical: true,
         playSound: true,
@@ -134,7 +186,8 @@ function checkForOutageAndNotify(status: SteamStatus, enableNotifications: boole
       toaster.toast({
         title: 'Steam Services Restored',
         body: 'All Steam services are now online',
-        icon: React.createElement(FaExclamationTriangle, { color: '#4caf50' }),
+        logo: createNotificationLogo(FaCheckCircle, '#4caf50'),
+        onClick: () => Navigation.NavigateToExternalWeb('https://steamstatus.schelstraete.org/status'),
         duration: 5000,
         playSound: true,
         showToast: true,

@@ -2,8 +2,8 @@
   "steamStatus": "Steam-tila",
   "playersOnlineTitle": "Pelaajia verkossa",
   "playersOnline": "Pelaajia verkossa:",
-  "maxPlayersLastDay": "Maks. pelaajia (viime päivä):",
-  "avgPlayersLastDay": "Keskim. pelaajia (viime päivä):",
+  "maxPlayersLastDay": "Maks. pelaajia (viime 48h):",
+  "avgPlayersLastDay": "Keskim. pelaajia (viime 48h):",
   "loading": "Ladataan...",
   "noDataAvailable": "Ei tietoja saatavilla",
   "refreshing": "Päivitetään...",
@@ -14,7 +14,7 @@
   "cached": "(Välimuistissa)",
 
   "trendingGames": "Suositut pelit",
-  "trendingGamesSubtitle": "48h pelaajamuutos (Deck-vahvistettu)",
+  "trendingGamesSubtitle": "72h pelaajamuutos (Deck-vahvistettu)",
 
   "serviceStatus": "Palvelun tila",
   "activeOutage": "Aktiivinen katkos",

@@ -3,7 +3,15 @@
 All important changes are mentioned here.
 
 
-## [1.2.2] - 2026-01-11
+## [1.2.2] - 2026-01-12
+
+### Fixed
+- **Outage tracker startup bug**: Gateway outage tracker now properly handles services that are already down when the gateway starts. Previously, only state transitions were tracked, causing simulated outages or real outages present at startup to never be logged.
+- **Notification icon size**: Notifications now use the correct `logo` property instead of `icon`, matching the standard Steam Deck notification appearance. Icons are now properly sized and consistent with system notifications.
+
+### Changed
+- **Improved UI organization**: Network Diagnostics, Links, About, and Settings sections are now collapsed by default for a cleaner interface. Steam Status, Players Online, and Service Status remain expanded.
+- **Interactive notifications**: Clicking on outage or recovery notifications now opens the status dashboard in the browser for detailed information.
 
 ### Security
 - **API key redaction in console logs**: Gateway API key is now redacted in all console.log output, displaying as `***REDACTED***` instead of the actual key. The key is still used normally for API requests but is no longer visible in browser developer console logs.

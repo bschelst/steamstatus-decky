@@ -2,8 +2,8 @@
   "steamStatus": "Steam 狀態",
   "playersOnlineTitle": "線上玩家",
   "playersOnline": "線上玩家：",
-  "maxPlayersLastDay": "最高玩家數（過去一天）：",
-  "avgPlayersLastDay": "平均玩家數（過去一天）：",
+  "maxPlayersLastDay": "最高玩家數（過去48小時）：",
+  "avgPlayersLastDay": "平均玩家數（過去48小時）：",
   "loading": "載入中...",
   "noDataAvailable": "無可用資料",
   "refreshing": "重新整理中...",
@@ -14,7 +14,7 @@
   "cached": "（快取）",
 
   "trendingGames": "熱門遊戲",
-  "trendingGamesSubtitle": "48小時玩家變化（Deck 已驗證）",
+  "trendingGamesSubtitle": "72小時玩家變化（Deck 已驗證）",
 
   "serviceStatus": "服務狀態",
   "activeOutage": "目前故障",

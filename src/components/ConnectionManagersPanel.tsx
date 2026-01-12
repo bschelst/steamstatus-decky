@@ -12,6 +12,7 @@ interface ConnectionManagersPanelProps {
 export const ConnectionManagersPanel: React.FC<ConnectionManagersPanelProps> = ({ cmRegions }) => {
   const t = useTranslations();
   const [isExpanded, setIsExpanded] = useState(false);
+  const [isFocused, setIsFocused] = useState(false);
 
   if (!cmRegions || cmRegions.length === 0) {
     return null;
@@ -23,12 +24,17 @@ export const ConnectionManagersPanel: React.FC<ConnectionManagersPanelProps> = (
     <div style={{ marginTop: '8px' }}>
       <Focusable
         onActivate={() => setIsExpanded(!isExpanded)}
+        onFocus={() => setIsFocused(true)}
+        onBlur={() => setIsFocused(false)}
         style={{
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          padding: '8px 0',
+          padding: '8px',
           cursor: 'pointer',
+          borderRadius: '4px',
+          background: isFocused ? 'rgba(139, 195, 74, 0.1)' : 'transparent',
+          transition: 'background 0.2s ease',
         }}
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>

@@ -2,8 +2,8 @@
   "steamStatus": "État de Steam",
   "playersOnlineTitle": "Joueurs en ligne",
   "playersOnline": "Joueurs en ligne :",
-  "maxPlayersLastDay": "Max joueurs (dernier jour) :",
-  "avgPlayersLastDay": "Moy. joueurs (dernier jour) :",
+  "maxPlayersLastDay": "Max joueurs (dernières 48h) :",
+  "avgPlayersLastDay": "Moy. joueurs (dernières 48h) :",
   "loading": "Chargement...",
   "noDataAvailable": "Aucune donnée disponible",
   "refreshing": "Actualisation...",
@@ -14,7 +14,7 @@
   "cached": "(En cache)",
 
   "trendingGames": "Jeux tendance",
-  "trendingGamesSubtitle": "Évolution des joueurs sur 48h (vérifié Deck)",
+  "trendingGamesSubtitle": "Évolution des joueurs sur 72h (vérifié Deck)",
 
   "serviceStatus": "État des services",
   "activeOutage": "Panne active",

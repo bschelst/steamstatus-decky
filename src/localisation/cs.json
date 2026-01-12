@@ -2,8 +2,8 @@
   "steamStatus": "Stav Steam",
   "playersOnlineTitle": "Hráči online",
   "playersOnline": "Hráči online:",
-  "maxPlayersLastDay": "Max. hráčů (poslední den):",
-  "avgPlayersLastDay": "Prům. hráčů (poslední den):",
+  "maxPlayersLastDay": "Max. hráčů (poslední 48h):",
+  "avgPlayersLastDay": "Prům. hráčů (poslední 48h):",
   "loading": "Načítání...",
   "noDataAvailable": "Žádná data k dispozici",
   "refreshing": "Obnovování...",
@@ -14,7 +14,7 @@
   "cached": "(Z mezipaměti)",
 
   "trendingGames": "Populární hry",
-  "trendingGamesSubtitle": "48h změna hráčů (ověřeno pro Deck)",
+  "trendingGamesSubtitle": "72h změna hráčů (ověřeno pro Deck)",
 
   "serviceStatus": "Stav služby",
   "activeOutage": "Aktivní výpadek",

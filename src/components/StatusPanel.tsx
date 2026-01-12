@@ -3,7 +3,6 @@ import { PanelSection, PanelSectionRow, ButtonItem, Focusable, Navigation } from
 import { FaCircle, FaSync, FaExternalLinkAlt } from 'react-icons/fa';
 import { SteamStatus } from '../../types/types';
 import { formatRelativeTime, getStatusColor } from '../utils/formatters';
-import { PlayersOnlinePanel } from './PlayersOnlinePanel';
 import { TrendingGamesPanel } from './TrendingGames';
 import { ConnectionManagersPanel } from './ConnectionManagersPanel';
 import { useSettings } from '../hooks/useSettings';
@@ -35,6 +34,8 @@ export const StatusPanel: React.FC<StatusPanelProps> = ({
   const [settings] = useSettings();
   const [timeSinceUpdate, setTimeSinceUpdate] = useState(0);
   const [refreshCooldown, setRefreshCooldown] = useState(0);
+  const [refreshFocused, setRefreshFocused] = useState(false);
+  const [statusFocused, setStatusFocused] = useState(false);
 
   // Update the "Updated Xs ago" counter every second
   useEffect(() => {
@@ -141,13 +142,6 @@ export const StatusPanel: React.FC<StatusPanelProps> = ({
         </div>
       </PanelSectionRow>
 
-      {/* Players Online */}
-      <PlayersOnlinePanel
-        online={status.online}
-        history={status.history}
-        showHistory={settings.show_history}
-      />
-
       {/* Connection Managers */}
       {status.cm_regions && status.cm_regions.length > 0 && (
         <ConnectionManagersPanel cmRegions={status.cm_regions} />
@@ -174,6 +168,8 @@ export const StatusPanel: React.FC<StatusPanelProps> = ({
         >
           <Focusable
             onActivate={handleRefresh}
+            onFocus={() => setRefreshFocused(true)}
+            onBlur={() => setRefreshFocused(false)}
             style={{
               flex: 1,
               display: 'flex',
@@ -181,10 +177,15 @@ export const StatusPanel: React.FC<StatusPanelProps> = ({
               justifyContent: 'center',
               gap: '6px',
               padding: '8px',
-              background: isRefreshDisabled ? '#0d0d0d' : '#1a1a1a',
+              background: isRefreshDisabled
+                ? '#0d0d0d'
+                : refreshFocused
+                  ? 'rgba(139, 195, 74, 0.2)'
+                  : '#1a1a1a',
               borderRadius: '4px',
               cursor: isRefreshDisabled ? 'not-allowed' : 'pointer',
               opacity: isRefreshDisabled ? 0.5 : 1,
+              transition: 'background 0.2s ease',
             }}
           >
             <FaSync size={12} className={isLoading ? 'spin' : ''} />
@@ -195,6 +196,8 @@ export const StatusPanel: React.FC<StatusPanelProps> = ({
 
           <Focusable
             onActivate={openStatusPage}
+            onFocus={() => setStatusFocused(true)}
+            onBlur={() => setStatusFocused(false)}
             style={{
               flex: 1,
               display: 'flex',
@@ -202,9 +205,10 @@ export const StatusPanel: React.FC<StatusPanelProps> = ({
               justifyContent: 'center',
               gap: '6px',
               padding: '8px',
-              background: '#1a1a1a',
+              background: statusFocused ? 'rgba(139, 195, 74, 0.2)' : '#1a1a1a',
               borderRadius: '4px',
               cursor: 'pointer',
+              transition: 'background 0.2s ease',
             }}
           >
             <FaExternalLinkAlt size={12} />

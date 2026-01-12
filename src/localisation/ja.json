@@ -2,8 +2,8 @@
   "steamStatus": "Steamステータス",
   "playersOnlineTitle": "オンラインプレイヤー",
   "playersOnline": "オンラインプレイヤー：",
-  "maxPlayersLastDay": "最大プレイヤー数（過去1日）：",
-  "avgPlayersLastDay": "平均プレイヤー数（過去1日）：",
+  "maxPlayersLastDay": "最大プレイヤー数（過去48時間）：",
+  "avgPlayersLastDay": "平均プレイヤー数（過去48時間）：",
   "loading": "読み込み中...",
   "noDataAvailable": "データがありません",
   "refreshing": "更新中...",
@@ -14,7 +14,7 @@
   "cached": "（キャッシュ）",
 
   "trendingGames": "人気ゲーム",
-  "trendingGamesSubtitle": "48時間のプレイヤー変動（Deck検証済み）",
+  "trendingGamesSubtitle": "72時間のプレイヤー変動（Deck検証済み）",
 
   "serviceStatus": "サービスステータス",
   "activeOutage": "現在の障害",

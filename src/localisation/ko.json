@@ -2,8 +2,8 @@
   "steamStatus": "Steam 상태",
   "playersOnlineTitle": "온라인 플레이어",
   "playersOnline": "온라인 플레이어:",
-  "maxPlayersLastDay": "최대 플레이어 (지난 하루):",
-  "avgPlayersLastDay": "평균 플레이어 (지난 하루):",
+  "maxPlayersLastDay": "최대 플레이어 (지난 48시간):",
+  "avgPlayersLastDay": "평균 플레이어 (지난 48시간):",
   "loading": "로딩 중...",
   "noDataAvailable": "사용 가능한 데이터 없음",
   "refreshing": "새로고침 중...",
@@ -14,7 +14,7 @@
   "cached": "(캐시됨)",
 
   "trendingGames": "인기 게임",
-  "trendingGamesSubtitle": "48시간 플레이어 변화 (Deck 인증)",
+  "trendingGamesSubtitle": "72시간 플레이어 변화 (Deck 인증)",
 
   "serviceStatus": "서비스 상태",
   "activeOutage": "현재 장애",

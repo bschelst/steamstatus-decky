@@ -2,8 +2,8 @@
   "steamStatus": "Steam-status",
   "playersOnlineTitle": "Spillere på nett",
   "playersOnline": "Spillere på nett:",
-  "maxPlayersLastDay": "Maks spillere (siste dag):",
-  "avgPlayersLastDay": "Snitt spillere (siste dag):",
+  "maxPlayersLastDay": "Maks spillere (siste 48t):",
+  "avgPlayersLastDay": "Snitt spillere (siste 48t):",
   "loading": "Laster...",
   "noDataAvailable": "Ingen data tilgjengelig",
   "refreshing": "Oppdaterer...",
@@ -14,7 +14,7 @@
   "cached": "(Hurtigbuffer)",
 
   "trendingGames": "Populære spill",
-  "trendingGamesSubtitle": "48t spillerendring (Deck-verifisert)",
+  "trendingGamesSubtitle": "72t spillerendring (Deck-verifisert)",
 
   "serviceStatus": "Tjenestestatus",
   "activeOutage": "Aktivt avbrudd",

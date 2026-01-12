@@ -26,11 +26,13 @@ import {
   FaServer,
   FaCircle,
   FaCheckCircle,
+  FaUsers,
 } from 'react-icons/fa';
 
 import { StatusPanel } from './StatusPanel';
 import { Settings } from './Settings';
 import HelpModal from './HelpModal';
+import { PlayersOnlinePanel } from './PlayersOnlinePanel';
 import { useSteamStatus } from '../hooks/useSteamStatus';
 import { useOutageDetection, OutageInfo } from '../hooks/useOutageDetection';
 import { useLatestVersion } from '../hooks/useLatestVersion';
@@ -271,7 +273,7 @@ const ServiceStatusSection: React.FC<{ outageInfo: OutageInfo }> = ({ outageInfo
 
 const DiagnosticsSection: React.FC = () => {
   const t = useTranslations();
-  const [isExpanded, setIsExpanded] = useState(true);
+  const [isExpanded, setIsExpanded] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
   const [latencyTesting, setLatencyTesting] = useState(false);
   const [latencyResult, setLatencyResult] = useState<string | null>(null);
@@ -429,7 +431,7 @@ const DiagnosticsSection: React.FC = () => {
 
 const LinksSection: React.FC = () => {
   const t = useTranslations();
-  const [isExpanded, setIsExpanded] = useState(true);
+  const [isExpanded, setIsExpanded] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
 
   return (
@@ -506,7 +508,7 @@ const AboutSection: React.FC = () => {
   );
   const [updateStatus, setUpdateStatus] = useState<UpdateStatus>('idle');
   const [updateError, setUpdateError] = useState<string | null>(null);
-  const [isExpanded, setIsExpanded] = useState(true);
+  const [isExpanded, setIsExpanded] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
 
   const isUpdating = updateStatus !== 'idle' && updateStatus !== 'completed' && updateStatus !== 'failed';
@@ -621,7 +623,7 @@ const AboutSection: React.FC = () => {
 
 const SettingsSection: React.FC<{ onOpenSettings: () => void }> = ({ onOpenSettings }) => {
   const t = useTranslations();
-  const [isExpanded, setIsExpanded] = useState(true);
+  const [isExpanded, setIsExpanded] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
 
   return (
@@ -714,6 +716,55 @@ const SteamStatusSection: React.FC<SteamStatusSectionProps> = (props) => {
   );
 };
 
+interface PlayersOnlineSectionProps {
+  status: SteamStatus | null;
+}
+
+const PlayersOnlineSection: React.FC<PlayersOnlineSectionProps> = ({ status }) => {
+  const t = useTranslations();
+  const [settings] = useSettings();
+  const [isExpanded, setIsExpanded] = useState(true);
+  const [isFocused, setIsFocused] = useState(false);
+
+  if (!status) return null;
+
+  return (
+    <div style={{ marginTop: '8px' }}>
+      <Focusable
+        onActivate={() => setIsExpanded(!isExpanded)}
+        onFocus={() => setIsFocused(true)}
+        onBlur={() => setIsFocused(false)}
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          padding: '8px',
+          cursor: 'pointer',
+          borderRadius: '4px',
+          background: isFocused ? 'rgba(139, 195, 74, 0.1)' : 'transparent',
+          transition: 'background 0.2s ease',
+        }}
+      >
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <FaUsers size={14} color="#8bc34a" />
+          <span>{t('playersOnlineTitle')}</span>
+        </div>
+        {isExpanded ? <FaChevronUp size={12} /> : <FaChevronDown size={12} />}
+      </Focusable>
+
+      {isExpanded && (
+        <div style={{ paddingLeft: '12px' }}>
+          <PlayersOnlinePanel
+            online={status.online}
+            history={status.history}
+            showHistory={settings.show_history}
+          />
+        </div>
+      )}
+    </div>
+  );
+};
+
 const Content: React.FC = () => {
   const t = useTranslations();
   const [showSettings, setShowSettings] = useState(false);
@@ -780,6 +831,9 @@ const Content: React.FC = () => {
         lastUpdated={lastUpdated}
         onRefresh={refresh}
       />
+
+      {/* Players Online Section */}
+      <PlayersOnlineSection status={status} />
 
       {/* Service Status Section */}
       <ServiceStatusSection outageInfo={outageInfo} />

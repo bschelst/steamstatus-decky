@@ -2,8 +2,8 @@
   "steamStatus": "สถานะ Steam",
   "playersOnlineTitle": "ผู้เล่นออนไลน์",
   "playersOnline": "ผู้เล่นออนไลน์:",
-  "maxPlayersLastDay": "ผู้เล่นสูงสุด (วันที่ผ่านมา):",
-  "avgPlayersLastDay": "ผู้เล่นเฉลี่ย (วันที่ผ่านมา):",
+  "maxPlayersLastDay": "ผู้เล่นสูงสุด (48 ชั่วโมงที่ผ่านมา):",
+  "avgPlayersLastDay": "ผู้เล่นเฉลี่ย (48 ชั่วโมงที่ผ่านมา):",
   "loading": "กำลังโหลด...",
   "noDataAvailable": "ไม่มีข้อมูล",
   "refreshing": "กำลังรีเฟรช...",
@@ -14,7 +14,7 @@
   "cached": "(แคช)",
 
   "trendingGames": "เกมยอดนิยม",
-  "trendingGamesSubtitle": "การเปลี่ยนแปลงผู้เล่น 48 ชม. (ยืนยันสำหรับ Deck)",
+  "trendingGamesSubtitle": "การเปลี่ยนแปลงผู้เล่น 72 ชม. (ยืนยันสำหรับ Deck)",
 
   "serviceStatus": "สถานะบริการ",
   "activeOutage": "การหยุดทำงานที่ใช้งานอยู่",
