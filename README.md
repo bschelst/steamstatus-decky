@@ -158,7 +158,7 @@ https://github.com/SteamDeckHomebrew/decky-loader
 
 5. ✅ Select the downloaded `steamstatus-decky-<version>.zip`.
 
-6. 🔄 Restart Steam client.
+6. 🔄 Restart Steam deck.
 
 The Steam status panel will appear in the Decky quick access menu. 🎉
 
