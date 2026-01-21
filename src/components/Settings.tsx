@@ -55,15 +55,6 @@ export const Settings: React.FC = () => {
             onChange={(value) => updateSetting('show_trending_games', value)}
           />
         </PanelSectionRow>
-
-        <PanelSectionRow>
-          <ToggleField
-            label={t('checkForUpdates')}
-            description={t('checkForUpdatesDesc')}
-            checked={settings.check_for_updates}
-            onChange={(value) => updateSetting('check_for_updates', value)}
-          />
-        </PanelSectionRow>
       </PanelSection>
 
       <PanelSection title={t('notifications')}>

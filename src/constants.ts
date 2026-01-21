@@ -10,7 +10,6 @@ export const DEFAULT_SETTINGS = {
   enable_notifications: true,
   enable_notification_antiflood: true,
   show_trending_games: true,
-  check_for_updates: true,
 };
 
 export const STATUS_COLORS = {

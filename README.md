@@ -60,9 +60,9 @@ This led me to realize that it would be (for me) highly beneficial to receive cl
 
 ## ⚙️ Features & Options
 
-- 📈 **History sparkline**: Visual graph of player counts over the last 24 hours
+- 📈 **History sparkline**: Visual graph of player counts over the last 48 hours
 - 🗺️ **Regional status**: Expandable view of Steam servers by region (US East, US West, EU West, EU East, Asia)
-- 🔥 **Trending games**: Top 5 Deck-verified games currently gaining players
+- 🔥 **Trending games**: Top 5 games currently gaining players, which also run on Steam Deck
 - 🔔 **Outage notifications**: Get notified when Steam services go down or recover
 - 🛡️ **Anti-flood protection**: Prevents notification spam during gateway or API issues
 - 🔍 **Network diagnostics**: Test Steam connection latency and internet speed

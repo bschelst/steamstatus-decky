@@ -9,7 +9,6 @@ import {
   FaServer,
   FaInfoCircle,
   FaGamepad,
-  FaDownload,
   FaNetworkWired,
   FaTachometerAlt,
 } from 'react-icons/fa';
@@ -346,23 +345,6 @@ const HelpModal: FC<HelpModalProps> = ({ closeModal }) => {
                     marginBottom: '4px',
                   }}
                 >
-                  <FaDownload size={14} />
-                  <strong>{t('autoUpdateFeature')}</strong>
-                </div>
-                <p style={{ lineHeight: '1.5', marginLeft: '22px' }}>
-                  {t('autoUpdateFeatureDesc')}
-                </p>
-              </div>
-
-              <div style={{ marginBottom: '16px' }}>
-                <div
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                    marginBottom: '4px',
-                  }}
-                >
                   <FaNetworkWired size={14} />
                   <strong>{t('networkDiagnosticsFeature')}</strong>
                 </div>
@@ -416,9 +398,6 @@ const HelpModal: FC<HelpModalProps> = ({ closeModal }) => {
                     </li>
                     <li style={{ marginBottom: '8px' }}>
                       <strong>{t('settingsShowTrendingGames')}</strong> - {t('settingsShowTrendingGamesDesc')}
-                    </li>
-                    <li style={{ marginBottom: '8px' }}>
-                      <strong>{t('settingsCheckForUpdates')}</strong> - {t('settingsCheckForUpdatesDesc')}
                     </li>
                     <li style={{ marginBottom: '8px' }}>
                       <strong>{t('settingsEnableNotifications')}</strong> - {t('settingsEnableNotificationsDesc')}

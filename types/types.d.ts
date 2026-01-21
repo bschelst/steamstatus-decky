@@ -66,7 +66,6 @@ export interface PluginSettings {
   enable_notifications: boolean;
   enable_notification_antiflood: boolean;
   show_trending_games: boolean;
-  check_for_updates: boolean;
 }
 
 export interface CachedStatus {
