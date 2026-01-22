@@ -3,10 +3,32 @@
 All important changes are mentioned here.
 
 
-## [1.2.3] - 2026-01-12
+## [1.2.3] - 2026-01-22
+
+### Added
+- **Gateway: Interactive CM region history**: Connection Manager regions are now clickable in the gateway status dashboard, opening a detailed modal with:
+  - 7-day historical latency graph powered by Chart.js
+  - Statistics: current, minimum, average, and maximum latency over 7 days
+  - 7-day outage history with color-coded events (outages, degraded states, recoveries)
+  - Scrollable content with custom-styled scrollbar
+- **Gateway: CM history tracking**: Backend now tracks Connection Manager latency history for all 26 regions:
+  - 10-minute sampling intervals (consistent with player count history)
+  - 7 days retention (1,008 data points per region)
+  - Thread-safe persistence to `cm_history.json`
+  - New API endpoint: `/api/internal/cm-history/{region}`
+- **Plugin: Clickable Connection Managers**: CM regions in the plugin are now clickable with full controller support:
+  - Opens gateway status dashboard in Steam overlay browser
+  - D-pad navigation with visual focus feedback (blue highlight)
+  - External link icon appears when region is focused
+  - Smooth transitions and proper Decky Focusable integration
 
 ### Fixed
-- **Settings persistence**: Fixed critical bug where settings changes were not being saved. Caused by my stupidity.
+- **Gateway: Trending games logic**: Trending games now only show games with positive player count gains. If no games are trending upward, the list is filled with most-played Steam Deck verified/playable games instead of showing negative/declining games
+- **Gateway: Misleading server count**: Removed server count display from CM regions (Steam API returns 85 for all regions, making it meaningless)
+- **Settings persistence**: Fixed critical bug where settings changes were not being saved
+
+### Changed
+- **Gateway: Expanded game tracking**: Increased fallback games list from 10 to 50 games for better trending detection and more accurate recommendations
 
 ## [1.2.2] - 2026-01-12
 
