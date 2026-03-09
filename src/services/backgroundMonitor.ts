@@ -3,7 +3,7 @@ import { Navigation } from '@decky/ui';
 import { FaSteam, FaExclamationTriangle, FaCheckCircle } from 'react-icons/fa';
 import React from 'react';
 import { SteamStatus } from '../../types/types';
-import { DEFAULT_SETTINGS } from '../constants';
+import { getSettings } from '../hooks/useSettings';
 
 // Create notification logo with Steam icon and corner badge
 // Note: Steam notification system uses dynamic sizing - we use 1em units to scale with system font
@@ -104,9 +104,7 @@ function recordNotification(): void {
 }
 
 async function fetchStatus(): Promise<SteamStatus | null> {
-  // Load settings from localStorage
-  const settingsStr = localStorage.getItem('steamstat_settings');
-  const settings = settingsStr ? { ...DEFAULT_SETTINGS, ...JSON.parse(settingsStr) } : DEFAULT_SETTINGS;
+  const settings = getSettings();
 
   if (!settings.gateway_url || !settings.gateway_api_key) {
     lastFetchError = 'Gateway not configured';
@@ -202,8 +200,7 @@ function checkForOutageAndNotify(status: SteamStatus, enableNotifications: boole
 }
 
 async function monitorTick(): Promise<void> {
-  const settingsStr = localStorage.getItem('steamstat_settings');
-  const settings = settingsStr ? { ...DEFAULT_SETTINGS, ...JSON.parse(settingsStr) } : DEFAULT_SETTINGS;
+  const settings = getSettings();
 
   const status = await fetchStatus();
   if (status) {
