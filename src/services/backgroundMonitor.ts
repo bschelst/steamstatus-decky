@@ -60,6 +60,10 @@ let monitorInterval: ReturnType<typeof setInterval> | null = null;
 let lastKnownOutageState = false;
 let notificationSentForOutage = false;
 
+// Outage confirmation: require consecutive down checks before notifying
+const CONFIRMATION_THRESHOLD = 2;
+let pendingOutageCount = 0;
+
 // Anti-flood mechanism: Track notification timestamps
 const notificationHistory: number[] = [];
 const ANTIFLOOD_MAX_NOTIFICATIONS = 10;
@@ -137,66 +141,89 @@ async function fetchStatus(): Promise<SteamStatus | null> {
 }
 
 function checkForOutageAndNotify(status: SteamStatus, enableNotifications: boolean, enableAntiflood: boolean): void {
+  if (status.maintenance?.weekly_planned) {
+    console.log('[SteamStatus] Weekly planned maintenance window active; suppressing outage notifications');
+    pendingOutageCount = 0;
+    return;
+  }
+
   const currentServicesDown = Object.values(status.services).some(
     (svc) => svc.status !== 'online'
   );
 
-  // Detect state transitions
-  const outageJustStarted = currentServicesDown && !lastKnownOutageState;
-  const outageJustEnded = !currentServicesDown && lastKnownOutageState;
-
-  // Send notification for new outage
-  if (outageJustStarted && !notificationSentForOutage && enableNotifications) {
-    // Check anti-flood rate limit
-    if (shouldRateLimitNotification(enableAntiflood)) {
-      console.log('[SteamStatus] Outage notification blocked by anti-flood protection');
-    } else {
-      notificationSentForOutage = true;
-
-      const affectedServices = Object.entries(status.services)
-        .filter(([, svc]) => svc.status !== 'online')
-        .map(([name]) => name)
-        .join(', ');
-
-      toaster.toast({
-        title: 'Steam Service Outage',
-        body: `Services affected: ${affectedServices}`,
-        logo: createNotificationLogo(FaExclamationTriangle, '#ff9800'),
-        onClick: () => Navigation.NavigateToExternalWeb('https://steamstatus.schelstraete.org/status'),
-        duration: 8000,
-        critical: true,
-        playSound: true,
-        showToast: true,
-      });
-
-      recordNotification();
-    }
+  if (currentServicesDown && !lastKnownOutageState) {
+    // Service just went down — start confirmation counter
+    pendingOutageCount = 1;
+    lastKnownOutageState = true;
+    console.log('[SteamStatus] Service down detected, pending confirmation...');
+    return;
   }
 
-  // Send recovery notification
-  if (outageJustEnded && enableNotifications) {
-    // Check anti-flood rate limit
-    if (shouldRateLimitNotification(enableAntiflood)) {
-      console.log('[SteamStatus] Recovery notification blocked by anti-flood protection');
-    } else {
+  if (currentServicesDown && lastKnownOutageState) {
+    // Still down — increment pending count
+    if (pendingOutageCount > 0 && pendingOutageCount < CONFIRMATION_THRESHOLD) {
+      pendingOutageCount++;
+      console.log(`[SteamStatus] Outage pending confirmation (${pendingOutageCount}/${CONFIRMATION_THRESHOLD})`);
+    }
+
+    // Confirmed after threshold — send notification once
+    if (pendingOutageCount >= CONFIRMATION_THRESHOLD && !notificationSentForOutage && enableNotifications) {
+      if (shouldRateLimitNotification(enableAntiflood)) {
+        console.log('[SteamStatus] Outage notification blocked by anti-flood protection');
+      } else {
+        notificationSentForOutage = true;
+        pendingOutageCount = 0;
+
+        const affectedServices = Object.entries(status.services)
+          .filter(([, svc]) => svc.status !== 'online')
+          .map(([name]) => name)
+          .join(', ');
+
+        toaster.toast({
+          title: 'Steam Service Outage',
+          body: `Services affected: ${affectedServices}`,
+          logo: createNotificationLogo(FaExclamationTriangle, '#ff9800'),
+          onClick: () => Navigation.NavigateToExternalWeb('https://steamstatus.schelstraete.org/status'),
+          duration: 8000,
+          critical: true,
+          playSound: true,
+          showToast: true,
+        });
+
+        recordNotification();
+      }
+    }
+    return;
+  }
+
+  if (!currentServicesDown && lastKnownOutageState) {
+    // Service recovered
+    if (pendingOutageCount > 0) {
+      // Was still pending — transient blip, discard silently
+      console.log('[SteamStatus] Transient blip cleared, no notification needed');
+      pendingOutageCount = 0;
+    } else if (notificationSentForOutage && enableNotifications) {
+      // Was a confirmed outage — send recovery
+      if (shouldRateLimitNotification(enableAntiflood)) {
+        console.log('[SteamStatus] Recovery notification blocked by anti-flood protection');
+      } else {
+        toaster.toast({
+          title: 'Steam Services Restored',
+          body: 'All Steam services are now online',
+          logo: createNotificationLogo(FaCheckCircle, '#4caf50'),
+          onClick: () => Navigation.NavigateToExternalWeb('https://steamstatus.schelstraete.org/status'),
+          duration: 5000,
+          playSound: true,
+          showToast: true,
+        });
+
+        recordNotification();
+      }
       notificationSentForOutage = false;
-
-      toaster.toast({
-        title: 'Steam Services Restored',
-        body: 'All Steam services are now online',
-        logo: createNotificationLogo(FaCheckCircle, '#4caf50'),
-        onClick: () => Navigation.NavigateToExternalWeb('https://steamstatus.schelstraete.org/status'),
-        duration: 5000,
-        playSound: true,
-        showToast: true,
-      });
-
-      recordNotification();
     }
-  }
 
-  // Update last known state
-  lastKnownOutageState = currentServicesDown;
+    lastKnownOutageState = false;
+  }
 }
 
 async function monitorTick(): Promise<void> {
